@@ -1,0 +1,15 @@
+import type { HttpResponse } from '@/types/api/response'
+import type { UserInfo } from '@/types/api/user'
+import { defineMock } from '@alova/mock'
+
+export default defineMock({
+  '/user/info': {
+    code: 200,
+    msg: 'success',
+    data: {
+      username: 'admin',
+      nickname: '管理员',
+      avatar: 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',
+    },
+  } satisfies HttpResponse<UserInfo>,
+})

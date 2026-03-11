@@ -26,7 +26,13 @@ export default antfu(
           order: ['script', 'template', 'style'],
         },
       ],
-      'vue/component-name-in-template-casing': ['error', 'PascalCase'],
+      'vue/component-name-in-template-casing': [
+        'error',
+        'PascalCase',
+        {
+          registeredComponentsOnly: false,
+        },
+      ],
       'vue/prop-name-casing': ['error', 'camelCase'],
       'vue/slot-name-casing': ['error', 'camelCase'],
       'vue/component-options-name-casing': ['error', 'PascalCase'],

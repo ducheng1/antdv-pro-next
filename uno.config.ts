@@ -1,16 +1,16 @@
+import { presetAntd } from '@antdv-next/unocss'
 import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
 import {
   defineConfig,
-  presetAttributify,
   presetIcons,
   presetTypography,
   presetWind4,
-  transformerAttributifyJsx,
   transformerCompileClass,
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
 import { presetAnimations } from 'unocss-preset-animations'
+import { presetScrollbar } from 'unocss-preset-scrollbar'
 import { resolvePath } from './build'
 
 // https://unocss.dev/
@@ -35,11 +35,13 @@ export default defineConfig({
       },
     }),
     presetTypography(),
-    presetAttributify(),
     presetAnimations(),
+    presetScrollbar(),
+    presetAntd({
+      prefix: 'ant',
+    }),
   ],
   transformers: [
-    transformerAttributifyJsx(),
     transformerCompileClass({
       classPrefix: '--uno',
     }),

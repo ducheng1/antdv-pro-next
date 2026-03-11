@@ -3,9 +3,12 @@ import UserProfile from './user-profile/index.vue'
 </script>
 
 <template>
-  <header>
-    <UserProfile />
-  </header>
+  <ALayoutHeader class="--uno flex-bc left-0 top-0 sticky z-900">
+    <Logo />
+    <div>
+      <UserProfile />
+    </div>
+  </ALayoutHeader>
 </template>
 
 <style lang="scss" scoped></style>

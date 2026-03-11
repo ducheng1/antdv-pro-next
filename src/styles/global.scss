@@ -1,3 +1,7 @@
 html {
-  @apply antialiased;
+  @apply w-unset h-unset;
+}
+
+body {
+  @apply antialiased min-h-screen max-w-screen overflow-x-hidden overflow-y-auto;
 }

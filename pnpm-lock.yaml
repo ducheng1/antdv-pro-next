@@ -42,6 +42,9 @@ importers:
       '@antdv-next/cssinjs':
         specifier: ^1.0.4
         version: 1.0.4(vue@3.5.30(typescript@5.9.3))
+      '@antdv-next/unocss':
+        specifier: ^1.0.2
+        version: 1.0.2(unocss@66.6.6(vite@7.3.1(@types/node@24.12.0)(jiti@2.6.1)(sass@1.98.0)(terser@5.46.0)(yaml@2.8.2)))
       '@antfu/eslint-config':
         specifier: ^7.7.0
         version: 7.7.0(@typescript-eslint/rule-tester@8.57.0(eslint@10.0.3(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/typescript-estree@8.57.0(typescript@5.9.3))(@typescript-eslint/utils@8.57.0(eslint@10.0.3(jiti@2.6.1))(typescript@5.9.3))(@unocss/eslint-plugin@66.6.6(eslint@10.0.3(jiti@2.6.1))(typescript@5.9.3))(@vue/compiler-sfc@3.5.30)(eslint@10.0.3(jiti@2.6.1))(typescript@5.9.3)
@@ -96,6 +99,9 @@ importers:
       husky:
         specifier: ^9.1.7
         version: 9.1.7
+      mockjs:
+        specifier: ^1.1.0
+        version: 1.1.0
       nano-staged:
         specifier: ^0.9.0
         version: 0.9.0
@@ -150,6 +156,9 @@ importers:
       unocss-preset-animations:
         specifier: ^1.3.0
         version: 1.3.0(@unocss/preset-wind3@66.6.6)(unocss@66.6.6(vite@7.3.1(@types/node@24.12.0)(jiti@2.6.1)(sass@1.98.0)(terser@5.46.0)(yaml@2.8.2)))
+      unocss-preset-scrollbar:
+        specifier: ^4.0.0
+        version: 4.0.0(unocss@66.6.6(vite@7.3.1(@types/node@24.12.0)(jiti@2.6.1)(sass@1.98.0)(terser@5.46.0)(yaml@2.8.2)))
       unplugin-auto-import:
         specifier: ^21.0.0
         version: 21.0.0(@vueuse/core@14.2.1(vue@3.5.30(typescript@5.9.3)))
@@ -214,6 +223,11 @@ packages:
     resolution: {integrity: sha512-z80jte5r11mSz/HeajbX53F+hud9D3+SEs7qkcJQ/haEhEE05z5LTOA8kNJO+4GCZczYeNfxq2LvArE7rnQvHQ==}
     peerDependencies:
       vue: '>=3.2.0'
+
+  '@antdv-next/unocss@1.0.2':
+    resolution: {integrity: sha512-iCvZOwCh4tD41fvd2hwrhhGKX38Bm9lBXiU+ROL0fe1ICF49sWcej3QUATeIHvgjF80uN8VOgQGWAkFyTb2rfw==}
+    peerDependencies:
+      unocss: '>=66.0.0'
 
   '@antfu/eslint-config@7.7.0':
     resolution: {integrity: sha512-lkxb84o8z4v1+me51XlrHHF6zvOZfvTu6Y11t6h6v17JSMl9yoNHwC0Sqp/NfMTHie/LGgjyXOupXpQCXxfs1Q==}
@@ -3226,6 +3240,10 @@ packages:
   mlly@1.8.1:
     resolution: {integrity: sha512-SnL6sNutTwRWWR/vcmCYHSADjiEesp5TGQQ0pXyLhW5IoeibRlF/CbSLailbB3CNqJUk9cVJ9dUDnbD7GrcHBQ==}
 
+  mockjs@1.1.0:
+    resolution: {integrity: sha512-eQsKcWzIaZzEZ07NuEyO4Nw65g0hdWAyurVol1IPl1gahRwY+svqzfgfey8U8dahLwG44d6/RwEzuK52rSa/JQ==}
+    hasBin: true
+
   module-replacements@2.11.0:
     resolution: {integrity: sha512-j5sNQm3VCpQQ7nTqGeOZtoJtV3uKERgCBm9QRhmGRiXiqkf7iRFOkfxdJRZWLkqYY8PNf4cDQF/WfXUYLENrRA==}
 
@@ -3948,6 +3966,11 @@ packages:
       '@unocss/preset-wind3':
         optional: true
 
+  unocss-preset-scrollbar@4.0.0:
+    resolution: {integrity: sha512-wPePkUCOvWsA1kOeImQtBzUnBuWhFvo2gOdWsPpmBke+z2zWbW4p9KfOPtGch+WrgnwnpmM4d4BxoVulC+1xhA==}
+    peerDependencies:
+      unocss: '>=66.0.0'
+
   unocss@66.6.6:
     resolution: {integrity: sha512-PRKK945e2oZKHV664MA5Z9CDHbvY/V79IvTOUWKZ514jpl3UsJU3sS+skgxmKJSmwrWvXE5OVcmPthJrD/7vxg==}
     engines: {node: '>=14'}
@@ -4251,6 +4274,10 @@ snapshots:
       '@ant-design/icons-svg': 4.4.2
       '@v-c/util': 1.0.18(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
+
+  '@antdv-next/unocss@1.0.2(unocss@66.6.6(vite@7.3.1(@types/node@24.12.0)(jiti@2.6.1)(sass@1.98.0)(terser@5.46.0)(yaml@2.8.2)))':
+    dependencies:
+      unocss: 66.6.6(vite@7.3.1(@types/node@24.12.0)(jiti@2.6.1)(sass@1.98.0)(terser@5.46.0)(yaml@2.8.2))
 
   '@antfu/eslint-config@7.7.0(@typescript-eslint/rule-tester@8.57.0(eslint@10.0.3(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/typescript-estree@8.57.0(typescript@5.9.3))(@typescript-eslint/utils@8.57.0(eslint@10.0.3(jiti@2.6.1))(typescript@5.9.3))(@unocss/eslint-plugin@66.6.6(eslint@10.0.3(jiti@2.6.1))(typescript@5.9.3))(@vue/compiler-sfc@3.5.30)(eslint@10.0.3(jiti@2.6.1))(typescript@5.9.3)':
     dependencies:
@@ -7502,6 +7529,10 @@ snapshots:
       pkg-types: 1.3.1
       ufo: 1.6.3
 
+  mockjs@1.1.0:
+    dependencies:
+      commander: 2.20.3
+
   module-replacements@2.11.0: {}
 
   mrmime@2.0.1: {}
@@ -8258,6 +8289,11 @@ snapshots:
       unocss: 66.6.6(vite@7.3.1(@types/node@24.12.0)(jiti@2.6.1)(sass@1.98.0)(terser@5.46.0)(yaml@2.8.2))
     optionalDependencies:
       '@unocss/preset-wind3': 66.6.6
+
+  unocss-preset-scrollbar@4.0.0(unocss@66.6.6(vite@7.3.1(@types/node@24.12.0)(jiti@2.6.1)(sass@1.98.0)(terser@5.46.0)(yaml@2.8.2))):
+    dependencies:
+      '@unocss/preset-mini': 66.6.6
+      unocss: 66.6.6(vite@7.3.1(@types/node@24.12.0)(jiti@2.6.1)(sass@1.98.0)(terser@5.46.0)(yaml@2.8.2))
 
   unocss@66.6.6(vite@7.3.1(@types/node@24.12.0)(jiti@2.6.1)(sass@1.98.0)(terser@5.46.0)(yaml@2.8.2)):
     dependencies:

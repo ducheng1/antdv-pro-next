@@ -20,7 +20,7 @@ export function createVitePlugins(): UserConfig['plugins'] {
     }),
     // https://uvr.esm.is/
     vueRouter({
-      dts: resolvePath('types/generated/typed-router.d.ts'),
+      dts: resolvePath('src/types/generated/typed-router.d.ts'),
       routesFolder: resolvePath('src/pages'),
     }),
     layouts({
@@ -33,14 +33,23 @@ export function createVitePlugins(): UserConfig['plugins'] {
     // https://unplugin.unjs.io/showcase/unplugin-vue-components.html
     components({
       resolvers: [AntdvNextResolver()],
-      dirs: [resolvePath('src/components')],
-      dts: resolvePath('types/generated/components.d.ts'),
+      globs: [resolvePath('src/components/**/index.vue')],
+      dts: resolvePath('src/types/generated/components.d.ts'),
     }),
     // https://unplugin.unjs.io/showcase/unplugin-auto-import.html
     autoImport({
-      imports: ['vue', '@vueuse/core', 'pinia', VueRouterAutoImports],
+      imports: [
+        'vue',
+        '@vueuse/core',
+        'pinia',
+        VueRouterAutoImports,
+        {
+          from: 'alova/client',
+          imports: ['useRequest'],
+        },
+      ],
       dirs: [resolvePath('src/hooks'), resolvePath('src/stores')],
-      dts: resolvePath('types/generated/auto-imports.d.ts'),
+      dts: resolvePath('src/types/generated/auto-imports.d.ts'),
       vueTemplate: true,
       vueDirectives: true,
     }),

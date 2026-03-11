@@ -34,7 +34,7 @@
   // stylelint配置
   "stylelint.enable": true,
   "stylelint.packageManager": "pnpm",
-  "stylelint.validate": ["css", "scss", "vue", "postcss"],
+  "stylelint.validate": ["css", "scss", "vue"],
   // 关闭插件默认校验
   "css.validate": false,
   "scss.validate": false,
