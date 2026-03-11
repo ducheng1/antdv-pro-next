@@ -16,7 +16,7 @@ const { isDark } = storeToRefs(appStore)
     }"
   >
     <AStyleProvider hash-priority="high">
-      <AApp class="--uno size-full">
+      <AApp class=":uno: size-full">
         <slot />
       </AApp>
     </AStyleProvider>

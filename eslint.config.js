@@ -14,7 +14,7 @@ export default antfu(
       'antfu/if-newline': 'off',
       'unocss/order': 'error',
       'unocss/order-attributify': 'error',
-      'unocss/enforce-class-compile': ['error', { prefix: '--uno' }],
+      'unocss/enforce-class-compile': 'off',
     },
   },
   {

@@ -23,13 +23,15 @@ const handleMenuClick: DropdownProps['onMenuClick'] = (info) => {
 </script>
 
 <template>
-  <ADropdown :menu="{ items }" @menu-click="handleMenuClick">
-    <AButton type="text">
-      <template #icon>
-        <i class="--uno i-lucide-languages" />
-      </template>
-    </AButton>
-  </ADropdown>
+  <div>
+    <ADropdown :menu="{ items }" @menu-click="handleMenuClick">
+      <AButton type="text">
+        <template #icon>
+          <i class=":uno: i-lucide-languages" />
+        </template>
+      </AButton>
+    </ADropdown>
+  </div>
 </template>
 
 <style lang="scss" scoped></style>

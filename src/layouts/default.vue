@@ -8,6 +8,7 @@ const layoutMap = new Map([['sider', Sider]])
 </script>
 
 <template>
+  <ConfigPanel />
   <component :is="layoutMap.get(config.layout.mode)" />
 </template>
 

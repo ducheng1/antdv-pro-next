@@ -44,7 +44,7 @@ export default defineConfig({
   ],
   transformers: [
     transformerCompileClass({
-      classPrefix: '--uno',
+      classPrefix: ':uno:',
     }),
     transformerDirectives(),
     transformerVariantGroup(),

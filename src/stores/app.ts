@@ -1,6 +1,6 @@
 import type { DarkMode, Locale } from '@/constants/app'
 import { appConfig } from '@/config'
-import { i18n, store } from '@/plugins'
+import { store } from '@/plugins'
 
 export const useAppStore = defineStore('app', () => {
   // 系统配置
@@ -30,12 +30,13 @@ export const useAppStore = defineStore('app', () => {
   }
 
   // 初始化国际化语言
-  i18n.global.locale = config.value.locale
+  const i18n = useI18n()
+  i18n.locale.value = config.value.locale
 
   // 切换国际化语言
   function setLocale(locale: Locale) {
     config.value.locale = locale
-    i18n.global.locale = locale
+    i18n.locale.value = locale
   }
 
   return { config, colorMode, isDark, setDarkMode, toggleDarkMode, setLocale }

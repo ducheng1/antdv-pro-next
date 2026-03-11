@@ -2,7 +2,6 @@
 
 <template>
   <UiProvider>
-    <ConfigPanel />
     <RouterView />
   </UiProvider>
 </template>

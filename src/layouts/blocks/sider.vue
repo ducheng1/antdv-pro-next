@@ -5,7 +5,7 @@ import Sider from '../components/sider/index.vue'
 </script>
 
 <template>
-  <ALayout class="--uno size-full" has-sider>
+  <ALayout class=":uno: size-full" has-sider>
     <Sider />
     <ALayout>
       <Header />

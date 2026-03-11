@@ -14,9 +14,11 @@ declare module 'vue' {
   export interface GlobalComponents {
     AApp: typeof import('antdv-next')['App']
     AButton: typeof import('antdv-next')['Button']
+    ACard: typeof import('antdv-next')['Card']
     AConfigProvider: typeof import('antdv-next')['ConfigProvider']
     ADrawer: typeof import('antdv-next')['Drawer']
     ADropdown: typeof import('antdv-next')['Dropdown']
+    AForm: typeof import('antdv-next')['Form']
     ALayout: typeof import('antdv-next')['Layout']
     ALayoutContent: typeof import('antdv-next')['LayoutContent']
     ALayoutHeader: typeof import('antdv-next')['LayoutHeader']
@@ -26,6 +28,7 @@ declare module 'vue' {
     Logo: typeof import('./../../components/internal/logo/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SwitchLocale: typeof import('./../../components/internal/switch-locale/index.vue')['default']
     UiProvider: typeof import('./../../components/internal/ui-provider/index.vue')['default']
   }
 }
@@ -34,9 +37,11 @@ declare module 'vue' {
 declare global {
   const AApp: typeof import('antdv-next')['App']
   const AButton: typeof import('antdv-next')['Button']
+  const ACard: typeof import('antdv-next')['Card']
   const AConfigProvider: typeof import('antdv-next')['ConfigProvider']
   const ADrawer: typeof import('antdv-next')['Drawer']
   const ADropdown: typeof import('antdv-next')['Dropdown']
+  const AForm: typeof import('antdv-next')['Form']
   const ALayout: typeof import('antdv-next')['Layout']
   const ALayoutContent: typeof import('antdv-next')['LayoutContent']
   const ALayoutHeader: typeof import('antdv-next')['LayoutHeader']
@@ -46,5 +51,6 @@ declare global {
   const Logo: typeof import('./../../components/internal/logo/index.vue')['default']
   const RouterLink: typeof import('vue-router')['RouterLink']
   const RouterView: typeof import('vue-router')['RouterView']
+  const SwitchLocale: typeof import('./../../components/internal/switch-locale/index.vue')['default']
   const UiProvider: typeof import('./../../components/internal/ui-provider/index.vue')['default']
 }

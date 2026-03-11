@@ -22,6 +22,7 @@ export function createVitePlugins(): UserConfig['plugins'] {
     vueRouter({
       dts: resolvePath('src/types/generated/typed-router.d.ts'),
       routesFolder: resolvePath('src/pages'),
+      filePatterns: ['**/index'],
     }),
     layouts({
       pagesDirs: resolvePath('src/pages'),
@@ -41,11 +42,16 @@ export function createVitePlugins(): UserConfig['plugins'] {
       imports: [
         'vue',
         '@vueuse/core',
+        'vue-i18n',
         'pinia',
         VueRouterAutoImports,
         {
           from: 'alova/client',
           imports: ['useRequest'],
+        },
+        {
+          from: 'clsx',
+          imports: [['default', 'clsx']],
         },
       ],
       dirs: [resolvePath('src/hooks'), resolvePath('src/stores')],
