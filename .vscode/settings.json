@@ -1,5 +1,6 @@
 {
   // 设置默认格式化工具
+  "prettier.enable": false,
   "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
   // 保存时自动修复linter错误
   "editor.codeActionsOnSave": {
@@ -38,5 +39,12 @@
   "css.validate": false,
   "scss.validate": false,
   // tsdk
-  "typescript.tsdk": "./node_modules/typescript/bin"
+  "typescript.tsdk": "./node_modules/typescript/bin",
+
+  "unocss.include": [
+    "**/*.{vue,ts,tsx,js,jsx,css,scss}"
+  ],
+  "[javascript]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  }
 }

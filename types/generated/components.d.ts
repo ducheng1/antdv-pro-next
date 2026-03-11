@@ -12,15 +12,23 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    HelloWorld: typeof import('./../../src/components/HelloWorld.vue')['default']
+    AApp: typeof import('antdv-next')['App']
+    AConfigProvider: typeof import('antdv-next')['ConfigProvider']
+    ARadioGroup: typeof import('antdv-next')['RadioGroup']
+    AStyleProvider: typeof import('antdv-next')['StyleProvider']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    UiProvider: typeof import('./../../src/components/internal/ui-provider/index.vue')['default']
   }
 }
 
 // For TSX support
 declare global {
-  const HelloWorld: typeof import('./../../src/components/HelloWorld.vue')['default']
+  const AApp: typeof import('antdv-next')['App']
+  const AConfigProvider: typeof import('antdv-next')['ConfigProvider']
+  const ARadioGroup: typeof import('antdv-next')['RadioGroup']
+  const AStyleProvider: typeof import('antdv-next')['StyleProvider']
   const RouterLink: typeof import('vue-router')['RouterLink']
   const RouterView: typeof import('vue-router')['RouterView']
+  const UiProvider: typeof import('./../../src/components/internal/ui-provider/index.vue')['default']
 }

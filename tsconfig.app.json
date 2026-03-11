@@ -7,7 +7,7 @@
       "@/*": ["./src/*"],
       "#/*": ["./types/*"]
     },
-    "types": ["vite/client", "unplugin-vue-router/client"],
+    "types": ["vite/client", "unplugin-vue-router/client", "vite-plugin-vue-layouts/client"],
     /* Linting */
     "allowJs": false,
     "strict": true,

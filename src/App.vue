@@ -1,12 +1,9 @@
-<script setup lang="ts">
-const title = computed(() => import.meta.env.VITE_APP_TITLE)
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div>
-    {{ title }}
+  <UiProvider>
     <RouterView />
-  </div>
+  </UiProvider>
 </template>
 
 <style scoped lang="scss"></style>

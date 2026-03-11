@@ -6,6 +6,7 @@
     "vue.volar",
     "stylelint.vscode-stylelint",
     "dbaeumer.vscode-eslint",
-    "formulahendry.auto-rename-tag"
+    "formulahendry.auto-rename-tag",
+    "bradlc.vscode-tailwindcss"
   ]
 }

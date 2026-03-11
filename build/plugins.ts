@@ -8,7 +8,9 @@ import turboConsole from 'unplugin-turbo-console/vite'
 import components from 'unplugin-vue-components/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import vueRouter from 'unplugin-vue-router/vite'
+import layouts from 'vite-plugin-vue-layouts'
 import tsconfigPaths from 'vite-tsconfig-paths'
+
 import { resolvePath } from './utils'
 
 export function createVitePlugins(): UserConfig['plugins'] {
@@ -21,18 +23,21 @@ export function createVitePlugins(): UserConfig['plugins'] {
       dts: resolvePath('types/generated/typed-router.d.ts'),
       routesFolder: resolvePath('src/pages'),
     }),
+    layouts({
+      pagesDirs: resolvePath('src/pages'),
+      layoutsDirs: resolvePath('src/layouts'),
+    }),
     vue(),
     vueJsx(),
     unocss(),
     // https://unplugin.unjs.io/showcase/unplugin-vue-components.html
     components({
-      resolvers: [AntdvNextResolver({})],
+      resolvers: [AntdvNextResolver()],
       dirs: [resolvePath('src/components')],
       dts: resolvePath('types/generated/components.d.ts'),
     }),
     // https://unplugin.unjs.io/showcase/unplugin-auto-import.html
     autoImport({
-      include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.vue\.[tj]sx?\?vue/],
       imports: ['vue', '@vueuse/core', 'pinia', VueRouterAutoImports],
       dirs: [resolvePath('src/hooks'), resolvePath('src/stores')],
       dts: resolvePath('types/generated/auto-imports.d.ts'),
