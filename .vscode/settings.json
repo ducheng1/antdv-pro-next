@@ -2,6 +2,21 @@
   // 设置默认格式化工具
   "prettier.enable": false,
   "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  "[javascript]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
   // 保存时自动修复linter错误
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
@@ -40,11 +55,17 @@
   "scss.validate": false,
   // tsdk
   "typescript.tsdk": "./node_modules/typescript/bin",
-
-  "unocss.include": [
-    "**/*.{vue,ts,tsx,js,jsx,css,scss}"
+  // i18n ally
+  "i18n-ally.localesPaths": [
+    "locales"
   ],
-  "[javascript]": {
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-  }
+  "i18n-ally.namespace": true,
+  "i18n-ally.pathMatcher": "{locale}/{namespace}.json",
+  "i18n-ally.annotations": true,
+  "i18n-ally.annotationInPlace": false,
+  "i18n-ally.displayLanguage": "zh-CN",
+  "i18n-ally.enabledParsers": [
+    "json"
+  ],
+  "i18n-ally.keystyle": "nested"
 }

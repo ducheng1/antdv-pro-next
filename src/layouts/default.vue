@@ -1,17 +1,14 @@
 <script setup lang="ts">
-import Content from './components/content/index.vue'
-import Header from './components/header/index.vue'
-import Sider from './components/sider/index.vue'
+import Sider from './blocks/sider.vue'
+
+const appStore = useAppStore()
+const { config } = storeToRefs(appStore)
+
+const layoutMap = new Map([['sider', Sider]])
 </script>
 
 <template>
-  <ALayout class="--uno size-full">
-    <Header />
-    <ALayout has-sider>
-      <Sider />
-      <Content />
-    </ALayout>
-  </ALayout>
+  <component :is="layoutMap.get(config.layout.mode)" />
 </template>
 
 <style lang="scss" scoped></style>

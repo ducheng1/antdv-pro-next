@@ -29,6 +29,7 @@ export default defineConfig({
       },
       collections: {
         antd: () => import('@iconify-json/ant-design/icons.json').then((res) => res.default),
+        lucide: () => import('@iconify-json/lucide/icons.json').then((res) => res.default),
         svg: FileSystemIconLoader(resolvePath('src/assets/svg'), (svg) =>
           svg.replace(/#fff/, 'currentColor'),
         ),

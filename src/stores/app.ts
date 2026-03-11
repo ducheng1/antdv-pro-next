@@ -1,10 +1,12 @@
-import type { DarkMode } from '@/constants/app'
+import type { DarkMode, Locale } from '@/constants/app'
 import { appConfig } from '@/config'
-import { store } from '@/plugins'
+import { i18n, store } from '@/plugins'
 
 export const useAppStore = defineStore('app', () => {
   // 系统配置
-  const config = useLocalStorage('antdv-app-config', appConfig)
+  const config = useLocalStorage('antdv-app-config', appConfig, {
+    listenToStorageChanges: false,
+  })
 
   // 颜色模式
   const { system: preferredColorMode, store: colorMode } = useColorMode({
@@ -27,7 +29,16 @@ export const useAppStore = defineStore('app', () => {
     colorMode.value = isDark.value ? 'light' : 'dark'
   }
 
-  return { config, colorMode, isDark, setDarkMode, toggleDarkMode }
+  // 初始化国际化语言
+  i18n.global.locale = config.value.locale
+
+  // 切换国际化语言
+  function setLocale(locale: Locale) {
+    config.value.locale = locale
+    i18n.global.locale = locale
+  }
+
+  return { config, colorMode, isDark, setDarkMode, toggleDarkMode, setLocale }
 })
 
 export const useAppStoreHook = () => useAppStore(store)

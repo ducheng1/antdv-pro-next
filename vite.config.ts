@@ -26,7 +26,7 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@': resolvePath('src'),
-        '#': resolvePath('types'),
+        '#': resolvePath('src/types'),
       },
     },
     plugins: createVitePlugins(),
@@ -45,7 +45,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     optimizeDeps: {
-      include: ['@iconify-json/ant-design'],
+      include: ['@iconify-json/ant-design', '@iconify-json/lucide'],
     },
   }
 })

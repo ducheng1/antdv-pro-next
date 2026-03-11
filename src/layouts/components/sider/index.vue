@@ -5,12 +5,13 @@ const { isDark } = storeToRefs(appStore)
 
 <template>
   <ALayoutSider
-    class="--uno border-r flex flex-col h-[calc(100vh-64px)] top-16 sticky z-900 ant-border"
+    class="--uno border-r flex flex-col h-screen top-0 sticky z-900 ant-border"
     :theme="isDark ? 'dark' : 'light'"
     :width="256"
     :collapsed-width="64"
     collapsible
   >
+    <Logo class="--uno flex-c h-16 w-full" />
     <div class="--uno grow h-full overflow-y-auto">
       <div v-for="i of 100" :key="i">{{ i }}</div>
     </div>

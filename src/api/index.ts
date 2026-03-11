@@ -1,4 +1,4 @@
-import type { HttpResponse } from '@/types/api/response'
+import type { HttpResponse } from '#/api/response'
 import { createAlova } from 'alova'
 import adapterFetch from 'alova/fetch'
 import vueHook from 'alova/vue'

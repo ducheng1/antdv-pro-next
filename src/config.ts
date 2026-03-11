@@ -1,5 +1,5 @@
-import type { AppConfig } from '@/types/app'
-import type { DeepPartial } from '@/types/utils'
+import type { AppConfig } from '#/app'
+import type { DeepPartial } from '#/utils'
 import { toMerged } from 'es-toolkit'
 import { defaultAppConfig } from './config.default'
 

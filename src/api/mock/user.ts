@@ -1,5 +1,5 @@
-import type { HttpResponse } from '@/types/api/response'
-import type { UserInfo } from '@/types/api/user'
+import type { HttpResponse } from '#/api/response'
+import type { UserInfo } from '#/api/user'
 import { defineMock } from '@alova/mock'
 
 export default defineMock({

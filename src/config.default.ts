@@ -1,4 +1,4 @@
-import type { AppConfig } from '@/types/app'
+import type { AppConfig } from '#/app'
 
 export const defaultAppConfig: AppConfig = {
   theme: {
@@ -7,4 +7,5 @@ export const defaultAppConfig: AppConfig = {
   layout: {
     mode: 'sider',
   },
+  locale: 'zh-CN',
 }

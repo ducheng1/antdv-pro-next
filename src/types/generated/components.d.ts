@@ -13,8 +13,10 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AApp: typeof import('antdv-next')['App']
+    AButton: typeof import('antdv-next')['Button']
     AConfigProvider: typeof import('antdv-next')['ConfigProvider']
     ADrawer: typeof import('antdv-next')['Drawer']
+    ADropdown: typeof import('antdv-next')['Dropdown']
     ALayout: typeof import('antdv-next')['Layout']
     ALayoutContent: typeof import('antdv-next')['LayoutContent']
     ALayoutHeader: typeof import('antdv-next')['LayoutHeader']
@@ -30,17 +32,19 @@ declare module 'vue' {
 
 // For TSX support
 declare global {
-  const AApp: (typeof import('antdv-next'))['App']
-  const AConfigProvider: (typeof import('antdv-next'))['ConfigProvider']
-  const ADrawer: (typeof import('antdv-next'))['Drawer']
-  const ALayout: (typeof import('antdv-next'))['Layout']
-  const ALayoutContent: (typeof import('antdv-next'))['LayoutContent']
-  const ALayoutHeader: (typeof import('antdv-next'))['LayoutHeader']
-  const ALayoutSider: (typeof import('antdv-next'))['LayoutSider']
-  const AStyleProvider: (typeof import('antdv-next'))['StyleProvider']
-  const ConfigPanel: (typeof import('./../../components/internal/config-panel/index.vue'))['default']
-  const Logo: (typeof import('./../../components/internal/logo/index.vue'))['default']
-  const RouterLink: (typeof import('vue-router'))['RouterLink']
-  const RouterView: (typeof import('vue-router'))['RouterView']
-  const UiProvider: (typeof import('./../../components/internal/ui-provider/index.vue'))['default']
+  const AApp: typeof import('antdv-next')['App']
+  const AButton: typeof import('antdv-next')['Button']
+  const AConfigProvider: typeof import('antdv-next')['ConfigProvider']
+  const ADrawer: typeof import('antdv-next')['Drawer']
+  const ADropdown: typeof import('antdv-next')['Dropdown']
+  const ALayout: typeof import('antdv-next')['Layout']
+  const ALayoutContent: typeof import('antdv-next')['LayoutContent']
+  const ALayoutHeader: typeof import('antdv-next')['LayoutHeader']
+  const ALayoutSider: typeof import('antdv-next')['LayoutSider']
+  const AStyleProvider: typeof import('antdv-next')['StyleProvider']
+  const ConfigPanel: typeof import('./../../components/internal/config-panel/index.vue')['default']
+  const Logo: typeof import('./../../components/internal/logo/index.vue')['default']
+  const RouterLink: typeof import('vue-router')['RouterLink']
+  const RouterView: typeof import('vue-router')['RouterView']
+  const UiProvider: typeof import('./../../components/internal/ui-provider/index.vue')['default']
 }
