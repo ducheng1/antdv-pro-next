@@ -6,17 +6,17 @@ import { createPostcssConfig, createVitePlugins, resolvePath } from './build'
 export default defineConfig(({ mode }) => {
   console.log(`current mode: ${mode}`)
 
-  const { VITE_API_BASE_URL, VITE_API_ENABLE_PROXY } = loadEnv(mode, process.cwd())
+  const env = loadEnv(mode, process.cwd()) as unknown as ImportMetaEnv
 
   return {
     server: {
       port: 5500,
       host: true,
       proxy:
-        VITE_API_ENABLE_PROXY === 'true'
+        env.VITE_API_ENABLE_PROXY === 'true'
           ? {
               '/proxy-api': {
-                target: VITE_API_BASE_URL,
+                target: env.VITE_API_BASE_URL,
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/proxy-api/, ''),
               },
@@ -29,7 +29,7 @@ export default defineConfig(({ mode }) => {
         '#': resolvePath('src/types'),
       },
     },
-    plugins: createVitePlugins(),
+    plugins: createVitePlugins(env),
     css: {
       postcss: createPostcssConfig(),
     },
@@ -37,7 +37,6 @@ export default defineConfig(({ mode }) => {
       chunkSizeWarningLimit: 2000,
       reportCompressedSize: false,
       sourcemap: false,
-      minify: 'terser',
       terserOptions: {
         compress: {
           drop_console: ['log', 'table'],

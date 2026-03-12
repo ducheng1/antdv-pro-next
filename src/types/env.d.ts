@@ -11,6 +11,8 @@ interface ImportMetaEnv {
   readonly VITE_API_ENABLE_PROXY: 'true' | string
   /** 是否开启mock */
   readonly VITE_API_ENABLE_MOCK: 'true' | string
+  /** 是否使用vue devtools */
+  readonly VITE_ENABLE_VUE_DEVTOOLS: 'true' | string
 }
 
 interface ImportMeta {

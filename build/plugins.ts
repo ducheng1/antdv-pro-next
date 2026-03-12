@@ -8,12 +8,12 @@ import turboConsole from 'unplugin-turbo-console/vite'
 import components from 'unplugin-vue-components/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import vueRouter from 'unplugin-vue-router/vite'
+import vueDevTools from 'vite-plugin-vue-devtools'
 import layouts from 'vite-plugin-vue-layouts'
 import tsconfigPaths from 'vite-tsconfig-paths'
-
 import { resolvePath } from './utils'
 
-export function createVitePlugins(): UserConfig['plugins'] {
+export function createVitePlugins(env: ImportMetaEnv): UserConfig['plugins'] {
   return [
     tsconfigPaths({
       configNames: ['tsconfig.app.json'],
@@ -61,5 +61,6 @@ export function createVitePlugins(): UserConfig['plugins'] {
     }),
     // https://utc.yuy1n.io/
     turboConsole(),
-  ]
+    env.VITE_ENABLE_VUE_DEVTOOLS === 'true' && vueDevTools(),
+  ].filter(Boolean)
 }
