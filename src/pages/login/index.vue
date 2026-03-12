@@ -3,11 +3,11 @@ import type { TabsProps } from 'antdv-next'
 import AccountLoginForm from './components/account-login-form.vue'
 
 definePage({
-  name: 'Auth',
+  name: 'Login',
   meta: {
-    title: 'routes.auth',
+    title: 'routes.login',
     layout: 'pure',
-    public: true,
+    requiresLogin: false,
   },
 })
 

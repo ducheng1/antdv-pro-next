@@ -8,7 +8,7 @@ import { i18n } from './i18n'
 const extendedRoutes = setupLayouts(
   routes.map((item) => {
     item.meta ??= {}
-
+    item.meta.requiresLogin = item.meta.requiresLogin ?? true
     return item
   }),
 )
@@ -29,14 +29,16 @@ router.beforeEach((to, _from, next) => {
     return next('/')
   }
   // 未登录且访问非公共页面，跳转到登录页
-  if (!to.meta.public && !userStore.isLogin) {
-    return next('/login')
+  if (to.meta.requiresLogin && !userStore.isLogin) {
+    return next({ path: '/login', query: { redirect: to.fullPath }, replace: true })
   }
+
+  // 设置页面标题
   const appStore = useAppStoreHook()
   const { t } = i18n.global
-  // 设置页面标题
   const title = to.meta.title ? `${t(to.meta.title)} - ` : ''
   useTitle(title + t('app.title', {}, { locale: appStore.config.locale }))
+
   return next()
 })
 

@@ -2,7 +2,6 @@ import type { HttpResponse } from '#/api/response'
 import { createAlova } from 'alova'
 import adapterFetch from 'alova/fetch'
 import vueHook from 'alova/vue'
-import { message } from 'antdv-next'
 import { mockAdapter } from './mock'
 
 const api = createAlova({
@@ -27,8 +26,11 @@ const api = createAlova({
       if (data.code === 200) {
         return data.data
       }
-      message.error(data.msg)
+      window.$message.error(data.msg)
       throw new Error(data.msg)
+    },
+    onError: (error) => {
+      window.$message.error(error.message)
     },
   },
 })

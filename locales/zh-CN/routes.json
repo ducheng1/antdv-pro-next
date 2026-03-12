@@ -1,4 +1,7 @@
 {
-  "auth": "登录",
-  "dashboard": "仪表盘"
+  "login": "登录",
+  "dashboard": {
+    "index": "仪表盘",
+    "analysis": "分析页"
+  }
 }

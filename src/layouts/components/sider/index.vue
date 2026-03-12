@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import Menu from './menu/index.vue'
+
 const appStore = useAppStore()
 const { isDark } = storeToRefs(appStore)
 </script>
@@ -13,7 +15,7 @@ const { isDark } = storeToRefs(appStore)
   >
     <Logo class=":uno: flex-c h-16 w-full" />
     <div class=":uno: grow h-full overflow-y-auto">
-      <div v-for="i of 100" :key="i">{{ i }}</div>
+      <Menu />
     </div>
   </ALayoutSider>
 </template>

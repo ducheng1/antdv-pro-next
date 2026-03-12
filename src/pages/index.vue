@@ -2,6 +2,15 @@
 import type { UserInfo } from '#/api/user'
 import api from '@/api'
 
+definePage({
+  name: 'Home',
+  meta: {
+    title: 'routes.dashboard.index',
+    menu: true,
+    menuSort: 1,
+  },
+})
+
 const { data, loading } = useRequest(api.Get<UserInfo>('/user/info'))
 const { t } = useI18n()
 </script>

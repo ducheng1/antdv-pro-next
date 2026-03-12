@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { theme } from 'antdv-next'
+import { message, Modal, notification, theme } from 'antdv-next'
 import enUS from 'antdv-next/locale/en_US'
 import zhCN from 'antdv-next/locale/zh_CN'
 import { getThemeToken } from '@/theme'
@@ -14,6 +14,14 @@ const localeMap = new Map([
   ['zh-CN', zhCN],
   ['en-US', enUS],
 ])
+
+const [messageApi, MessageContextHolder] = message.useMessage()
+const [notificationApi, NotificationContextHolder] = notification.useNotification()
+const [modalApi, ModalContextHolder] = Modal.useModal()
+
+window.$message = messageApi
+window.$notification = notificationApi
+window.$modal = modalApi
 </script>
 
 <template>
@@ -25,7 +33,10 @@ const localeMap = new Map([
     }"
   >
     <AStyleProvider hash-priority="high">
-      <AApp class=":uno: size-full">
+      <AApp class=":uno: size-full" :message="{ maxCount: 5 }" :notification="{ maxCount: 3 }">
+        <MessageContextHolder />
+        <NotificationContextHolder />
+        <ModalContextHolder />
         <slot />
       </AApp>
     </AStyleProvider>

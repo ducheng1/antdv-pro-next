@@ -11,6 +11,8 @@ const app = createApp(App)
 setupPlugins(app)
 
 router.isReady().then(() => {
+  const appStore = useAppStoreHook()
+  appStore.setDefaultLocale()
   app.mount('#app')
   loadingFadeOut()
 })

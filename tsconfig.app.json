@@ -9,7 +9,7 @@
     },
     "types": [
       "vite/client",
-      "unplugin-vue-router/client",
+      "vue-router/auto",
       "vite-plugin-vue-layouts/client",
       "vite-plugin-app-loading/client"
     ],

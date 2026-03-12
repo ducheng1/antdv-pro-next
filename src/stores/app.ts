@@ -47,9 +47,12 @@ export const useAppStore = defineStore('app', () => {
     }
   }
 
-  setLocale(config.value.locale)
+  // 设置默认语言
+  function setDefaultLocale() {
+    setLocale(config.value.locale)
+  }
 
-  return { config, colorMode, isDark, setDarkMode, toggleDarkMode, setLocale }
+  return { config, colorMode, isDark, setDarkMode, toggleDarkMode, setLocale, setDefaultLocale }
 })
 
 export const useAppStoreHook = () => useAppStore(store)

@@ -34,6 +34,7 @@ declare global {
   const debouncedWatch: typeof import('@vueuse/core').debouncedWatch
   const defineAsyncComponent: typeof import('vue').defineAsyncComponent
   const defineComponent: typeof import('vue').defineComponent
+  const definePage: typeof import('vue-router/experimental').definePage
   const defineStore: typeof import('pinia').defineStore
   const eagerComputed: typeof import('@vueuse/core').eagerComputed
   const effectScope: typeof import('vue').effectScope
@@ -247,6 +248,8 @@ declare global {
   const useResizeObserver: typeof import('@vueuse/core').useResizeObserver
   const useRoute: typeof import('vue-router').useRoute
   const useRouter: typeof import('vue-router').useRouter
+  const useRoutesStore: typeof import('../../stores/routes').useRoutesStore
+  const useRoutesStoreHook: typeof import('../../stores/routes').useRoutesStoreHook
   const useSSRWidth: typeof import('@vueuse/core').useSSRWidth
   const useScreenOrientation: typeof import('@vueuse/core').useScreenOrientation
   const useScreenSafeArea: typeof import('@vueuse/core').useScreenSafeArea
@@ -357,6 +360,7 @@ declare module 'vue' {
     readonly debouncedWatch: UnwrapRef<typeof import('@vueuse/core')['debouncedWatch']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
+    readonly definePage: UnwrapRef<typeof import('vue-router/experimental')['definePage']>
     readonly defineStore: UnwrapRef<typeof import('pinia')['defineStore']>
     readonly eagerComputed: UnwrapRef<typeof import('@vueuse/core')['eagerComputed']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
@@ -570,6 +574,8 @@ declare module 'vue' {
     readonly useResizeObserver: UnwrapRef<typeof import('@vueuse/core')['useResizeObserver']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
+    readonly useRoutesStore: UnwrapRef<typeof import('../../stores/routes')['useRoutesStore']>
+    readonly useRoutesStoreHook: UnwrapRef<typeof import('../../stores/routes')['useRoutesStoreHook']>
     readonly useSSRWidth: UnwrapRef<typeof import('@vueuse/core')['useSSRWidth']>
     readonly useScreenOrientation: UnwrapRef<typeof import('@vueuse/core')['useScreenOrientation']>
     readonly useScreenSafeArea: UnwrapRef<typeof import('@vueuse/core')['useScreenSafeArea']>

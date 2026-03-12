@@ -6,13 +6,13 @@ import unocss from 'unocss/vite'
 import autoImport from 'unplugin-auto-import/vite'
 import turboConsole from 'unplugin-turbo-console/vite'
 import components from 'unplugin-vue-components/vite'
-import { VueRouterAutoImports } from 'unplugin-vue-router'
-import vueRouter from 'unplugin-vue-router/vite'
 import appLoading from 'vite-plugin-app-loading'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import layouts from 'vite-plugin-vue-layouts'
 import { ViteWebfontDownload } from 'vite-plugin-webfont-dl'
 import tsconfigPaths from 'vite-tsconfig-paths'
+import { VueRouterAutoImports } from 'vue-router/unplugin'
+import vueRouter from 'vue-router/vite'
 import { resolvePath } from './utils'
 
 export function createVitePlugins(env: ImportMetaEnv): UserConfig['plugins'] {
@@ -24,8 +24,7 @@ export function createVitePlugins(env: ImportMetaEnv): UserConfig['plugins'] {
     // https://uvr.esm.is/
     vueRouter({
       dts: resolvePath('src/types/generated/typed-router.d.ts'),
-      routesFolder: resolvePath('src/pages'),
-      filePatterns: ['**/index'],
+      exclude: ['**/components/**'],
     }),
     // https://github.com/johncampionjr/vite-plugin-vue-layouts
     layouts({

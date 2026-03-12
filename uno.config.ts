@@ -10,7 +10,6 @@ import {
   transformerVariantGroup,
 } from 'unocss'
 import { presetAnimations } from 'unocss-preset-animations'
-import { presetScrollbar } from 'unocss-preset-scrollbar'
 import { resolvePath } from './build'
 
 // https://unocss.dev/
@@ -38,7 +37,6 @@ export default defineConfig({
     }),
     presetTypography(),
     presetAnimations(),
-    presetScrollbar(),
     presetAntd({
       prefix: 'ant',
     }),
