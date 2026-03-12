@@ -19,6 +19,7 @@ const items = computed<MenuItemType[]>(() =>
 
 const handleMenuClick: DropdownProps['onMenuClick'] = (info) => {
   appStore.setLocale(info.key as Locale)
+  window.location.reload()
 }
 </script>
 

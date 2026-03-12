@@ -1,5 +1,8 @@
 <script setup lang="ts">
 const props = defineProps<{ size?: 'large' }>()
+
+const i18n = useI18n()
+const { t } = i18n
 </script>
 
 <template>
@@ -8,7 +11,7 @@ const props = defineProps<{ size?: 'large' }>()
     <span
       :class="clsx(':uno: text-18px font-bold ml-2 ant-c-text', props.size === 'large' && 'text-8')"
     >
-      Antdv Pro Next
+      {{ t('app.title') }}
     </span>
   </a>
 </template>

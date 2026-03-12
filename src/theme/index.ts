@@ -1,7 +1,15 @@
 import type { ThemeConfig } from 'antdv-next'
+import { toMerged } from 'es-toolkit'
+import { darkThemeToken } from './dark'
+import { lightThemeToken } from './light'
 
-export const themeToken: Omit<ThemeConfig, 'algorithm'> = {
+const commonToken: Omit<ThemeConfig, 'algorithm'> = {
   token: {
-    colorBgLayout: '#f5f5f5',
+    fontFamily: 'Noto Sans SC, PingFang SC, system-ui, sans-serif',
+    // colorBgLayout: '#f5f5f5',
   },
+}
+
+export function getThemeToken(isDark: boolean) {
+  return toMerged(commonToken, isDark ? darkThemeToken : lightThemeToken)
 }

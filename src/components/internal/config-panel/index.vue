@@ -10,11 +10,9 @@ const open = ref<boolean>(false)
     @click="open = true"
   >
     <i
-      class=":uno: size-6"
-      :class="{
-        ':uno: i-antd-setting-outlined': !open,
-        ':uno: i-antd-close-outlined': open,
-      }"
+      :class="
+        clsx(':uno: size-6', open ? 'i-ant-design-close-outlined' : 'i-ant-design-setting-outlined')
+      "
     />
   </div>
   <Panel v-model="open" />

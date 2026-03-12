@@ -5,7 +5,7 @@ const { isDark } = storeToRefs(appStore)
 
 <template>
   <ALayoutSider
-    class=":uno: border-r flex flex-col h-screen top-0 sticky z-900 ant-border"
+    class=":uno: border-r h-screen top-0 sticky z-900 ant-border"
     :theme="isDark ? 'dark' : 'light'"
     :width="256"
     :collapsed-width="64"
@@ -18,4 +18,10 @@ const { isDark } = storeToRefs(appStore)
   </ALayoutSider>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+:deep(.ant-layout-sider-children) {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+</style>

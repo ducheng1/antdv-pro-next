@@ -45,6 +45,7 @@
     "@iconify-json/ant-design": "^1.2.5",
     "@iconify-json/lucide": "^1.2.96",
     "@iconify/utils": "^3.1.0",
+    "@types/mockjs": "^1.0.10",
     "@types/node": "^24.12.0",
     "@types/postcss-pxtorem": "^6.1.0",
     "@unocss/eslint-plugin": "^66.6.6",
@@ -84,8 +85,10 @@
     "unplugin-vue-components": "^31.0.0",
     "unplugin-vue-router": "^0.19.2",
     "vite": "^8.0.0-beta.18",
+    "vite-plugin-app-loading": "^0.4.0",
     "vite-plugin-vue-devtools": "^8.0.7",
     "vite-plugin-vue-layouts": "^0.11.0",
+    "vite-plugin-webfont-dl": "^3.12.0",
     "vite-tsconfig-paths": "^6.1.1",
     "vue-tsc": "^3.2.5"
   },

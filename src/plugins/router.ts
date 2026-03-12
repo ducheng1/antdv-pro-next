@@ -2,6 +2,8 @@ import type { App } from 'vue'
 import { setupLayouts } from 'virtual:generated-layouts'
 import { createRouter, createWebHistory } from 'vue-router'
 import { handleHotUpdate, routes } from 'vue-router/auto-routes'
+import { useAppStoreHook } from '@/stores/app'
+import { i18n } from './i18n'
 
 const extendedRoutes = setupLayouts(
   routes.map((item) => {
@@ -19,6 +21,24 @@ export const router = createRouter({
 if (import.meta.hot) {
   handleHotUpdate(router)
 }
+
+router.beforeEach((to, _from, next) => {
+  const userStore = useUserStoreHook()
+  // 登录且访问登录页，跳转到首页
+  if (userStore.isLogin && to.path === '/login') {
+    return next('/')
+  }
+  // 未登录且访问非公共页面，跳转到登录页
+  if (!to.meta.public && !userStore.isLogin) {
+    return next('/login')
+  }
+  const appStore = useAppStoreHook()
+  const { t } = i18n.global
+  // 设置页面标题
+  const title = to.meta.title ? `${t(to.meta.title)} - ` : ''
+  useTitle(title + t('app.title', {}, { locale: appStore.config.locale }))
+  return next()
+})
 
 export function setupRouter(app: App) {
   app.use(router)

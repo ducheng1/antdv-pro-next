@@ -1,6 +1,14 @@
 import type { DarkMode, Locale } from '@/constants/app'
+import dayjs from 'dayjs'
 import { appConfig } from '@/config'
-import { store } from '@/plugins'
+import { i18n, store } from '@/plugins'
+import 'dayjs/locale/zh-cn'
+import 'dayjs/locale/en'
+
+const dayjsLocaleMap = new Map([
+  ['zh-CN', 'zh-cn'],
+  ['en-US', 'en'],
+])
 
 export const useAppStore = defineStore('app', () => {
   // 系统配置
@@ -29,15 +37,17 @@ export const useAppStore = defineStore('app', () => {
     colorMode.value = isDark.value ? 'light' : 'dark'
   }
 
-  // 初始化国际化语言
-  const i18n = useI18n()
-  i18n.locale.value = config.value.locale
-
   // 切换国际化语言
   function setLocale(locale: Locale) {
     config.value.locale = locale
-    i18n.locale.value = locale
+    i18n.global.locale = locale
+    dayjs.locale(dayjsLocaleMap.get(locale))
+    if (document) {
+      document.documentElement.lang = locale
+    }
   }
+
+  setLocale(config.value.locale)
 
   return { config, colorMode, isDark, setDarkMode, toggleDarkMode, setLocale }
 })

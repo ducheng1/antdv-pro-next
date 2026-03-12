@@ -36,7 +36,7 @@ export default defineConfig(({ mode }) => {
     build: {
       chunkSizeWarningLimit: 2000,
       reportCompressedSize: false,
-      sourcemap: false,
+      sourcemap: env.VITE_BUILD_SOURCEMAP === 'true',
       terserOptions: {
         compress: {
           drop_console: ['log', 'table'],

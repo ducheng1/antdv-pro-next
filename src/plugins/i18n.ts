@@ -22,6 +22,8 @@ for (const path in messageModules) {
 export const i18n = createI18n({
   locale: 'zh-CN',
   fallbackLocale: 'zh-CN',
+  globalInjection: true,
+  availableLocales: Object.keys(messages),
   messages,
 })
 

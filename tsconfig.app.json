@@ -4,10 +4,15 @@
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "#/*": ["./src/types/*"]
+      "#/*": ["./src/types/*"],
+      "@/*": ["./src/*"]
     },
-    "types": ["vite/client", "unplugin-vue-router/client", "vite-plugin-vue-layouts/client"],
+    "types": [
+      "vite/client",
+      "unplugin-vue-router/client",
+      "vite-plugin-vue-layouts/client",
+      "vite-plugin-app-loading/client"
+    ],
     /* Linting */
     "allowJs": false,
     "strict": true,

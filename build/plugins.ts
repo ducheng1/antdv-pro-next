@@ -8,13 +8,16 @@ import turboConsole from 'unplugin-turbo-console/vite'
 import components from 'unplugin-vue-components/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import vueRouter from 'unplugin-vue-router/vite'
+import appLoading from 'vite-plugin-app-loading'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import layouts from 'vite-plugin-vue-layouts'
+import { ViteWebfontDownload } from 'vite-plugin-webfont-dl'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import { resolvePath } from './utils'
 
 export function createVitePlugins(env: ImportMetaEnv): UserConfig['plugins'] {
   return [
+    // https://github.com/aleclarson/vite-tsconfig-paths
     tsconfigPaths({
       configNames: ['tsconfig.app.json'],
     }),
@@ -24,12 +27,14 @@ export function createVitePlugins(env: ImportMetaEnv): UserConfig['plugins'] {
       routesFolder: resolvePath('src/pages'),
       filePatterns: ['**/index'],
     }),
+    // https://github.com/johncampionjr/vite-plugin-vue-layouts
     layouts({
       pagesDirs: resolvePath('src/pages'),
       layoutsDirs: resolvePath('src/layouts'),
     }),
     vue(),
     vueJsx(),
+    // https://unocss.dev/
     unocss(),
     // https://unplugin.unjs.io/showcase/unplugin-vue-components.html
     components({
@@ -61,6 +66,14 @@ export function createVitePlugins(env: ImportMetaEnv): UserConfig['plugins'] {
     }),
     // https://utc.yuy1n.io/
     turboConsole(),
+    // https://devtools.vuejs.org/guide/vite-plugin
     env.VITE_ENABLE_VUE_DEVTOOLS === 'true' && vueDevTools(),
+    // https://webfont-dl.feat.agency/
+    ViteWebfontDownload([
+      // Noto Sans SC
+      'https://unpkg.com/@fontsource/noto-sans-sc@5.2.9/chinese-simplified-400.css',
+      'https://unpkg.com/@fontsource/noto-sans-sc@5.2.9/chinese-simplified-700.css',
+    ]),
+    appLoading('loading.html'),
   ].filter(Boolean)
 }
