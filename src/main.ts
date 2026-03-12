@@ -14,5 +14,7 @@ router.isReady().then(() => {
   const appStore = useAppStoreHook()
   appStore.setDefaultLocale()
   app.mount('#app')
+  const routesStore = useRoutesStoreHook()
+  routesStore.generateMenu()
   loadingFadeOut()
 })
