@@ -15,7 +15,8 @@
     "primary-color": "主题色",
     "menu-color-mode": "菜单风格",
     "layout": "布局模式",
-    "content-width": "内容区域宽度"
+    "content-width": "内容区域宽度",
+    "breadcrumb": "面包屑"
   },
   "content-width": {
     "fixed": "定宽",

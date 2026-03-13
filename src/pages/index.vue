@@ -1,7 +1,7 @@
 <script setup lang="ts">
 definePage({
   name: 'Home',
-  redirect: '/dashboard/analysis',
+  redirect: '/dashboard',
   meta: {
     title: 'routes.home',
   },

@@ -10,6 +10,8 @@ export const defaultAppConfig: AppConfig = {
     mode: 'side',
     siderCollapsed: false,
     contentWidth: 'fluid',
+    logo: true,
+    breadcrumb: true,
   },
   locale: 'zh-CN',
 }

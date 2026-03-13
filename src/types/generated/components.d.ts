@@ -14,6 +14,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AApp: typeof import('antdv-next')['App']
     AAvatar: typeof import('antdv-next')['Avatar']
+    ABreadcrumb: typeof import('antdv-next')['Breadcrumb']
     AButton: typeof import('antdv-next')['Button']
     ACard: typeof import('antdv-next')['Card']
     ACheckbox: typeof import('antdv-next')['Checkbox']
@@ -58,6 +59,7 @@ declare module 'vue' {
 declare global {
   const AApp: typeof import('antdv-next')['App']
   const AAvatar: typeof import('antdv-next')['Avatar']
+  const ABreadcrumb: typeof import('antdv-next')['Breadcrumb']
   const AButton: typeof import('antdv-next')['Button']
   const ACard: typeof import('antdv-next')['Card']
   const ACheckbox: typeof import('antdv-next')['Checkbox']

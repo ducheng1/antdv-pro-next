@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Breadcrumb from '../breadcrumb/index.vue'
 import Menu from '../menu/index.vue'
 import UserProfile from './user-profile/index.vue'
 
@@ -24,7 +25,7 @@ const { config, menuColorMode, isDark } = storeToRefs(appStore)
       <!-- 折叠侧边栏 -->
       <SwitchSiderCollapse v-if="config.layout.mode === 'side'" />
       <Logo
-        v-if="config.layout.mode !== 'side'"
+        v-if="config.layout.mode !== 'side' && config.layout.logo"
         :class="
           clsx(
             'w-256px',
@@ -34,12 +35,13 @@ const { config, menuColorMode, isDark } = storeToRefs(appStore)
           )
         "
       />
+      <Breadcrumb v-if="config.layout.breadcrumb && config.layout.mode === 'side'" class="ml-2" />
     </div>
     <Menu
       v-if="config.layout.mode !== 'side'"
       :split="config.layout.mode === 'mix'"
       is-top
-      class="grow"
+      :class="clsx('grow', !config.layout.logo && 'pl-4')"
       mode="horizontal"
     />
     <div

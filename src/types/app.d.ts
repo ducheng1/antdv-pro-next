@@ -37,4 +37,8 @@ interface Layout {
   siderCollapsed: boolean
   /** 内容区域宽度 */
   contentWidth: ContentWidth
+  /** 是否显示logo */
+  logo: boolean
+  /** 是否显示面包屑 */
+  breadcrumb: boolean
 }

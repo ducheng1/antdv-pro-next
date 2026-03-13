@@ -26,20 +26,28 @@ const contentWidthOptions: SegmentedOptions = contentWidthList.map((item) => ({
 <template>
   <div>
     <p>{{ t('app.config.layout') }}</p>
-    <p>
+    <p class=":uno: mb-4">
       <ASegmented
         :value="config.layout.mode"
         :options="layoutModeOptions"
         @change="(value) => appStore.setLayoutMode(value as LayoutMode)"
       />
     </p>
-    <p class=":uno: flex-bc">
+    <p class=":uno: mb-6 flex-bc">
       <span>{{ t('app.config.content-width') }}</span>
       <ASegmented
         :value="config.layout.contentWidth"
         :options="contentWidthOptions"
         @change="(value) => appStore.setContentWidth(value as ContentWidth)"
       />
+    </p>
+    <p class=":uno: mb-6 flex-bc">
+      <span>{{ t('app.config.breadcrumb') }}</span>
+      <ASwitch v-model:checked="config.layout.breadcrumb" />
+    </p>
+    <p class=":uno: flex-bc">
+      <span>Logo</span>
+      <ASwitch v-model:checked="config.layout.logo" />
     </p>
   </div>
 </template>

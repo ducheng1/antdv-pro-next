@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useAppStore } from '@/stores/app'
+import Breadcrumb from '../breadcrumb/index.vue'
 
 const appStore = useAppStore()
 const { config } = storeToRefs(appStore)
@@ -10,6 +11,7 @@ const { config } = storeToRefs(appStore)
     <section
       :class="clsx(config.layout.contentWidth === 'fixed' ? 'max-w-1200px mx-auto' : 'w-full')"
     >
+      <Breadcrumb v-if="config.layout.breadcrumb && config.layout.mode !== 'side'" class="mb-4" />
       <RouterView v-slot="{ Component, route }">
         <KeepAlive :key="route.path">
           <component :is="Component" />
