@@ -14,7 +14,7 @@ export const useUserStore = defineStore('user', () => {
   async function handleLogin(form: AccountLoginForm) {
     const data = await api.Post<string>('/auth/login', form)
     token.value = data
-    await Promise.all([getUserInfo, getPermissionList])
+    await Promise.all([getUserInfo(), getPermissionList()])
   }
 
   // 获取用户信息
