@@ -10,11 +10,14 @@ export const useUserStore = defineStore('user', () => {
   const userInfo = ref<UserInfo>({} as UserInfo)
   const permissionList = ref<string[]>([])
 
+  const routes = useRoutesStore()
+
   // 登录
   async function handleLogin(form: AccountLoginForm) {
     const data = await api.Post<string>('/auth/login', form)
     token.value = data
     await Promise.all([getUserInfo(), getPermissionList()])
+    routes.generateMenu()
   }
 
   // 获取用户信息
