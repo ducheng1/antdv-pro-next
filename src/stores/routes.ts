@@ -23,16 +23,13 @@ export const useRoutesStore = defineStore('routes', () => {
         : `${parentPath}${parentPath.endsWith('/') ? '' : '/'}${route.path}`
       // 处理当前路由
       const processedRoute = { ...route, path: fullPath }
-
       // 如果有子路由，递归处理
       if (processedRoute.children && processedRoute.children.length > 0) {
         // 处理子路由
         const processedChildren: RouteRecordRaw[] = []
-
         processedRoute.children.forEach((child) => {
           // 递归处理子路由
           const flattenedChild = convertToRouteTree([child], processedRoute.path)[0]
-
           if (child.path === '') {
             // 如果子路由路径为空，将其属性合并到父路由
             Object.assign(processedRoute, {
@@ -40,7 +37,6 @@ export const useRoutesStore = defineStore('routes', () => {
               redirect: flattenedChild.redirect || processedRoute.redirect,
               meta: { ...processedRoute.meta, ...flattenedChild.meta },
             })
-
             // 如果有子路由，添加到processedChildren
             if (flattenedChild.children && flattenedChild.children.length > 0) {
               processedChildren.push(...flattenedChild.children)
@@ -50,26 +46,53 @@ export const useRoutesStore = defineStore('routes', () => {
             processedChildren.push(flattenedChild)
           }
         })
-
         // 更新父路由的children
         processedRoute.children = processedChildren.length > 0 ? processedChildren : undefined
       }
-
       return processedRoute
     })
   }
 
+  const userStore = useUserStore()
+
   // 递归生成菜单
   function convertToMenu(routes: RouteRecordRaw[]): MenuItemType[] {
     return routes
-      .filter((route) => route.meta?.menu)
+      .filter((route) => {
+        // 是否为菜单
+        if (route.meta?.menu) {
+          // 是否有权限
+          if (route.meta?.auth?.length) {
+            return userStore.hasPermission(route.meta.auth)
+          }
+          return true
+        }
+        return false
+      })
       .sort((a, b) => (a.meta?.menuSort || 0) - (b.meta?.menuSort || 0))
-      .map((route) => ({
-        key: route.path,
-        label: route.meta?.title as string,
-        icon: route.meta?.icon as string,
-        children: route.children ? convertToMenu(route.children) : undefined,
-      }))
+      .map((route) => {
+        const children = route.children?.length ? convertToMenu(route.children) : undefined
+        // 在路由中包含子级
+        if (route.children?.length) {
+          // 子菜单没有被过滤
+          if (children?.length) {
+            return {
+              key: route.path,
+              label: (route.meta?.title as string) ?? 'app.unnamed-page',
+              icon: route.meta?.icon as string,
+              children,
+            }
+          }
+          // 过滤整个菜单
+          return undefined as unknown as MenuItemType
+        }
+        return {
+          key: route.path,
+          label: (route.meta?.title as string) ?? 'app.unnamed-page',
+          icon: route.meta?.icon as string,
+        }
+      })
+      .filter(Boolean)
   }
 
   // 通过 routeTree 递归获取路由路径数组

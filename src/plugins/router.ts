@@ -1,17 +1,23 @@
 import type { App } from 'vue'
+import type { RouteRecordRaw } from 'vue-router'
 import { setupLayouts } from 'virtual:generated-layouts'
 import { createRouter, createWebHistory } from 'vue-router'
 import { handleHotUpdate, routes } from 'vue-router/auto-routes'
 import { useAppStoreHook } from '@/stores/app'
 import { i18n } from './i18n'
 
-const extendedRoutes = setupLayouts(
-  routes.map((item) => {
+function addDefaultMeta(routes: readonly RouteRecordRaw[]) {
+  return routes.map((item) => {
     item.meta ??= {}
     item.meta.requiresLogin = item.meta.requiresLogin ?? true
+    if (item.children) {
+      item.children = addDefaultMeta(item.children)
+    }
     return item
-  }),
-)
+  })
+}
+
+const extendedRoutes = setupLayouts(addDefaultMeta(routes))
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -27,6 +33,11 @@ router.beforeEach((to, _from, next) => {
   // 登录且访问登录页，跳转到首页
   if (userStore.isLogin && to.path === '/login') {
     next('/')
+  }
+
+  // 无权限访问，跳转到无权限页
+  if (to.meta.auth && !userStore.hasPermission(to.meta.auth)) {
+    next({ path: '/error/403', replace: true })
   }
 
   // 未登录且访问非公共页面，跳转到登录页
