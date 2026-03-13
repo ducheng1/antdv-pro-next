@@ -119,14 +119,16 @@ export const useRoutesStore = defineStore('routes', () => {
     return result
   }
 
+  // 混合模式侧边子菜单
+  const mixSideMenuList = ref<MenuItemType[]>([])
+
   // 获取子菜单
   function getChildMenu(path: string) {
-    const routePath = getRoutePath(path)
-    // @ts-expect-error unknown type
-    return menuList.value.find((item) => item!.key === routePath[0].path)?.children ?? []
+    // @ts-expect-error unknown type item
+    mixSideMenuList.value = menuList.value.find((item) => item.key === path)?.children ?? []
   }
 
-  return { generateMenu, getRoutePath, menuList, getChildMenu }
+  return { generateMenu, getRoutePath, menuList, getChildMenu, mixSideMenuList }
 })
 
 export const useRoutesStoreHook = () => useRoutesStore(store)

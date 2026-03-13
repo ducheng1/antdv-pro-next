@@ -5,9 +5,7 @@ const appStore = useAppStore()
 const { config, menuColorMode, isDark } = storeToRefs(appStore)
 const routesStore = useRoutesStore()
 
-const route = useRoute()
-
-const hasChild = computed(() => !!routesStore.getChildMenu(route.path)?.length)
+const hasChild = computed(() => !!routesStore.mixSideMenuList?.length)
 </script>
 
 <template>

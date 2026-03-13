@@ -18,6 +18,10 @@ const route = useRoute()
 const router = useRouter()
 
 const onMenuSelect: MenuProps['onSelect'] = (item) => {
+  // 混合模式下点击顶部菜单
+  if (props.split && props.isTop) {
+    routesStore.getChildMenu(item.key)
+  }
   router.push(item.key)
 }
 
@@ -42,8 +46,13 @@ const selectedKeys = computed<string[]>(
     [],
 )
 
+// 混合模式下点击顶部菜单
+if (props.split && props.isTop) {
+  routesStore.getChildMenu(selectedKeys.value[0])
+}
+
 const menuItems = computed<MenuItemType[]>(() => {
-  // 是否拆分（在 mix 模式下）
+  // 是否拆分（在混合模式下）
   if (props.split) {
     // 顶部菜单，只显示一级
     if (props.isTop) {
@@ -55,8 +64,8 @@ const menuItems = computed<MenuItemType[]>(() => {
           }) as MenuItemType,
       )
     }
-    // 获取子菜单
-    return routesStore.getChildMenu(route.path)
+    // 混合模式的侧边菜单
+    return routesStore.mixSideMenuList
   }
   return menuList.value
 })
