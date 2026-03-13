@@ -28,6 +28,7 @@ export default defineConfig(({ mode }) => {
         '@': resolvePath('src'),
         '#': resolvePath('src/types'),
       },
+      tsconfigPaths: true,
     },
     plugins: createVitePlugins(env),
     css: {

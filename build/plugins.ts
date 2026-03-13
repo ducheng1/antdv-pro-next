@@ -10,17 +10,12 @@ import appLoading from 'vite-plugin-app-loading'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import layouts from 'vite-plugin-vue-layouts'
 import { ViteWebfontDownload } from 'vite-plugin-webfont-dl'
-import tsconfigPaths from 'vite-tsconfig-paths'
 import { VueRouterAutoImports } from 'vue-router/unplugin'
 import vueRouter from 'vue-router/vite'
 import { resolvePath } from './utils'
 
 export function createVitePlugins(env: ImportMetaEnv): UserConfig['plugins'] {
   return [
-    // https://github.com/aleclarson/vite-tsconfig-paths
-    tsconfigPaths({
-      configNames: ['tsconfig.app.json'],
-    }),
     // https://uvr.esm.is/
     vueRouter({
       dts: resolvePath('src/types/generated/typed-router.d.ts'),
