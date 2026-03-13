@@ -17,7 +17,10 @@ const { config, menuColorMode, isDark } = storeToRefs(appStore)
       )
     "
   >
-    <div class=":uno: flex-c gap-1 h-full">
+    <div
+      class=":uno: flex-c gap-1 h-full"
+      :class="menuColorMode === 'dark' && !isDark && 'dark-mode'"
+    >
       <!-- 折叠侧边栏 -->
       <SwitchSiderCollapse v-if="config.layout.mode === 'side'" />
       <Logo

@@ -2,7 +2,7 @@
 import Menu from '../menu/index.vue'
 
 const appStore = useAppStore()
-const { config, menuColorMode } = storeToRefs(appStore)
+const { config, menuColorMode, isDark } = storeToRefs(appStore)
 const routesStore = useRoutesStore()
 
 const route = useRoute()
@@ -25,7 +25,16 @@ const hasChild = computed(() => !!routesStore.getChildMenu(route.path)?.length)
     :collapsed="config.layout.siderCollapsed || (config.layout.mode === 'mix' && !hasChild)"
   >
     <div v-if="config.layout.mode === 'side'" class=":uno: flex-c h-16 w-full">
-      <Logo :icon-only="config.layout.siderCollapsed" />
+      <Logo
+        :icon-only="config.layout.siderCollapsed"
+        :class="
+          clsx(
+            menuColorMode === 'dark' && !isDark
+              ? 'text-[var(--ant-layout-light-sider-bg)]'
+              : 'ant-c-text',
+          )
+        "
+      />
     </div>
     <div class=":uno: px-1 grow h-full overflow-y-auto">
       <Menu :split="config.layout.mode === 'mix'" />
