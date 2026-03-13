@@ -33,8 +33,8 @@ const contentWidthOptions: SegmentedOptions = contentWidthList.map((item) => ({
         @change="(value) => appStore.setLayoutMode(value as LayoutMode)"
       />
     </p>
-    <p>{{ t('app.config.content-width') }}</p>
-    <p>
+    <p class=":uno: flex-bc">
+      <span>{{ t('app.config.content-width') }}</span>
       <ASegmented
         :value="config.layout.contentWidth"
         :options="contentWidthOptions"

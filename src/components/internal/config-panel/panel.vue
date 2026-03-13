@@ -6,7 +6,23 @@ defineOptions({
   name: 'ConfigPanelPanel',
 })
 
+const { t } = useI18n()
 const open = defineModel<boolean>()
+const appStore = useAppStore()
+const { config } = storeToRefs(appStore)
+
+const { copy, isSupported, copied } = useClipboard()
+
+async function handleCopy() {
+  if (!isSupported.value) {
+    window.$message.error(t('app.not-support-clipboard'))
+    return
+  }
+  await copy(JSON.stringify(config.value))
+  if (copied.value) {
+    window.$message.success(t('app.config-copy-success'))
+  }
+}
 </script>
 
 <template>
@@ -14,6 +30,11 @@ const open = defineModel<boolean>()
     <Theme />
     <ADivider />
     <Layout />
+    <template #footer>
+      <div class="text-right">
+        <AButton type="primary" @click="handleCopy">复制配置</AButton>
+      </div>
+    </template>
   </ADrawer>
 </template>
 

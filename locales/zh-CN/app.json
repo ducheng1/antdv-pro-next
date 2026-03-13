@@ -31,5 +31,7 @@
     "green": "极光绿",
     "geek": "极客蓝",
     "purple": "酱紫"
-  }
+  },
+  "not-support-clipboard": "当前环境不支持复制",
+  "config-copy-success": "复制成功，请粘贴到src/config.ts中"
 }
