@@ -1,18 +1,42 @@
 {
   "title": "Antdv Pro Next",
+  "layout": {
+    "side": "側邊欄模式",
+    "top": "頂部模式",
+    "mix": "混合模式"
+  },
   "color-mode": {
     "dark": "暗色模式",
     "light": "亮色模式",
     "auto": "跟隨系統"
+  },
+  "config": {
+    "color-mode": "整體風格設定",
+    "primary-color": "主題色",
+    "menu-color-mode": "菜單風格",
+    "layout": "佈局模式",
+    "content-width": "內容區域寬度"
+  },
+  "content-width": {
+    "fixed": "定寬",
+    "fluid": "流式"
+  },
+  "primary-color": {
+    "default": "科技藍（默認）",
+    "awake": "拂曉",
+    "mourning": "薄暮",
+    "volcano": "火山",
+    "sunset": "日暮",
+    "morning": "明青",
+    "green": "極光綠",
+    "geek": "極客藍",
+    "purple": "醬紫"
   },
   "error": {
     "403": "對不起，您無權訪問此頁面",
     "404": "您所造訪的頁面不存在"
   },
   "back-home": "回到首頁",
-  "config": {
-    "color-mode": "整體風格設定",
-    "primary-color": "主題色",
-    "layout": "佈局模式"
-  }
+  "back": "返回上級",
+  "unnamed-page": "未命名頁面"
 }

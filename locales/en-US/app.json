@@ -1,9 +1,36 @@
 {
   "title": "Antdv Pro Next",
+  "layout": {
+    "side": "Side Layout",
+    "top": "Top Layout",
+    "mix": "Mix Layout"
+  },
   "color-mode": {
     "dark": "Dark",
     "light": "Light",
     "auto": "System"
+  },
+  "config": {
+    "color-mode": "Style Setting",
+    "primary-color": "Primary Color",
+    "menu-color-mode": "Menu Style",
+    "layout": "Layout Setting",
+    "content-width": "Content Width"
+  },
+  "content-width": {
+    "fixed": "Fixed",
+    "fluid": "Fluid"
+  },
+  "primary-color": {
+    "default": "Tech Blue (Default)",
+    "awake": "Awake",
+    "mourning": "Dusk",
+    "volcano": "Volcano",
+    "sunset": "Sunset",
+    "morning": "Morning",
+    "green": "Aurora Green",
+    "geek": "Geek Blue",
+    "purple": "Purple"
   },
   "error": {
     "403": "Sorry, you are not authorized to access this page.",
@@ -11,10 +38,5 @@
   },
   "back-home": "Back Home",
   "back": "Back",
-  "unnamed-page": "Unnamed Page",
-  "config": {
-    "color-mode": "Style Setting",
-    "primary-color": "Primary Color",
-    "layout": "Layout Setting"
-  }
+  "unnamed-page": "Unnamed Page"
 }

@@ -9,5 +9,11 @@
   "form": {
     "index": "表單頁",
     "basic": "基礎表單頁"
+  },
+  "error": {
+    "index": "錯誤頁"
+  },
+  "permission": {
+    "index": "權限測試頁"
   }
 }

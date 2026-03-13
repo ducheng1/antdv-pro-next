@@ -1,5 +1,12 @@
 {
   "confirm": "Confirm",
   "cancel": "Cancel",
-  "logout": "Logout"
+  "logout": "Logout",
+  "error": {
+    "403": "Sorry, you are not authorized to access this page.",
+    "404": "Sorry, the page you visited does not exist."
+  },
+  "back-home": "Back Home",
+  "back": "Back",
+  "unnamed-page": "Unnamed Page"
 }

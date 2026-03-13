@@ -5,5 +5,15 @@
     "index": "Dashboard",
     "analysis": "Analysis",
     "monitor": "Monitor"
+  },
+  "form": {
+    "index": "Form",
+    "basic": "Basic Form"
+  },
+  "error": {
+    "index": "Error"
+  },
+  "permission": {
+    "index": "Permission Test"
   }
 }
