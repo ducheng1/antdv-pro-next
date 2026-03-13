@@ -5,13 +5,17 @@ const userStore = useUserStore()
 const { userInfo } = storeToRefs(userStore)
 
 const { t } = useI18n()
+const router = useRouter()
 
 const items: MenuItemType[] = [
   {
     label: t('common.logout'),
     key: 'logout',
     icon: 'i-ant-design:logout-outlined',
-    onClick: userStore.handleLogout,
+    onClick: () => {
+      userStore.handleLogout()
+      router.replace('/login')
+    },
   },
 ]
 </script>

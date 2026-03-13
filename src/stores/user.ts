@@ -9,7 +9,6 @@ export const useUserStore = defineStore('user', () => {
 
   const userInfo = ref<UserInfo>({} as UserInfo)
   const permissionList = ref<string[]>([])
-  const router = useRouter()
 
   // 登录
   async function handleLogin(form: AccountLoginForm) {
@@ -35,7 +34,6 @@ export const useUserStore = defineStore('user', () => {
     token.value = null
     userInfo.value = {} as UserInfo
     permissionList.value = []
-    router.replace('/login')
   }
 
   // 是否有权限
