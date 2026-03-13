@@ -1,28 +1,39 @@
-// 暗色模式
+// 颜色模式
 export const darkModeList = [
   {
-    label: '暗色模式',
+    // 暗色模式
+    label: 'app.color-mode.dark',
     value: 'dark',
   },
   {
-    label: '亮色模式',
+    // 亮色模式
+    label: 'app.color-mode.light',
     value: 'light',
   },
   {
-    label: '跟随系统',
+    // 跟随系统
+    label: 'app.color-mode.auto',
     value: 'auto',
   },
 ] as const
 export type DarkMode = (typeof darkModeList)[number]['value']
 
 // 布局模式
-export const layoutList = [
+export const layoutModeList = [
   {
     label: '侧边栏布局',
-    value: 'sider',
+    value: 'side',
+  },
+  {
+    label: '顶栏布局',
+    value: 'top',
+  },
+  {
+    label: '混合布局',
+    value: 'mix',
   },
 ] as const
-export type Layout = (typeof layoutList)[number]['value']
+export type LayoutMode = (typeof layoutModeList)[number]['value']
 
 // 国际化语言
 export const localeList = [

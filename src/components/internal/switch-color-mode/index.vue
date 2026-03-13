@@ -5,13 +5,26 @@ import { darkModeList } from '@/constants/app'
 
 const appStore = useAppStore()
 const { colorMode, isDark } = storeToRefs(appStore)
+const { t } = useI18n()
+
+function getColorModeIcon(mode: DarkMode) {
+  switch (mode) {
+    case 'dark':
+      return 'i-ant-design:moon-outlined'
+    case 'light':
+      return 'i-ant-design:sun-outlined'
+    case 'auto':
+      return 'i-ant-design:sync-outlined'
+  }
+}
 
 const items = computed<MenuItemType[]>(() =>
   darkModeList.map(
     (item) =>
       ({
+        icon: getColorModeIcon(item.value),
         key: item.value,
-        label: item.label,
+        label: t(item.label),
         disabled: item.value === colorMode.value,
       }) satisfies MenuItemType,
   ),
@@ -32,9 +45,15 @@ const handleMenuClick: DropdownProps['onMenuClick'] = (item) => {
 
 <template>
   <ADropdown :menu="{ items }" @menu-click="handleMenuClick">
+    <template #iconRender="item">
+      <RenderIcon :icon="item.icon" class="scale-120" />
+    </template>
     <AButton type="text" @click="handleViewTransition(appStore.toggleDarkMode)">
       <template #icon>
-        <i :class="isDark ? 'i-lucide-sun' : 'i-lucide-moon'" />
+        <RenderIcon
+          :icon="isDark ? 'i-ant-design:sun-outlined' : 'i-ant-design:moon-outlined'"
+          class="scale-120"
+        />
       </template>
     </AButton>
   </ADropdown>

@@ -31,7 +31,7 @@ const handleMenuClick: DropdownProps['onMenuClick'] = (info) => {
   <ADropdown :menu="{ items }" @menu-click="handleMenuClick">
     <AButton type="text">
       <template #icon>
-        <i class=":uno: i-lucide-languages" />
+        <RenderIcon icon="i-lucide:languages" class="scale-120" />
       </template>
     </AButton>
   </ADropdown>

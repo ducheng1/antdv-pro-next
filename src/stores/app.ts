@@ -12,16 +12,22 @@ const dayjsLocaleMap = new Map([
 
 export const useAppStore = defineStore('app', () => {
   // 系统配置
-  const config = useLocalStorage('antdv-app-config', appConfig, {
-    listenToStorageChanges: false,
-  })
+  const config = useLocalStorage(
+    `${import.meta.env.VITE_APP_STORAGE_PREFIX}app-config`,
+    appConfig,
+    {
+      listenToStorageChanges: false,
+    },
+  )
 
   // 颜色模式
   const { system: preferredColorMode, store: colorMode } = useColorMode({
     attribute: 'class',
     initialValue: config.value.theme.darkMode,
-    storageKey: 'antdv-color-mode',
+    storageKey: `${import.meta.env.VITE_APP_STORAGE_PREFIX}color-mode`,
+    listenToStorageChanges: false,
   })
+
   // 是否为暗色模式
   const isDark = computed(() =>
     colorMode.value === 'auto' ? preferredColorMode.value === 'dark' : colorMode.value === 'dark',
@@ -52,7 +58,21 @@ export const useAppStore = defineStore('app', () => {
     setLocale(config.value.locale)
   }
 
-  return { config, colorMode, isDark, setDarkMode, toggleDarkMode, setLocale, setDefaultLocale }
+  // 切换侧边栏折叠状态
+  function toggleSiderCollapse() {
+    config.value.layout.siderCollapsed = !config.value.layout.siderCollapsed
+  }
+
+  return {
+    config,
+    colorMode,
+    isDark,
+    setDarkMode,
+    toggleDarkMode,
+    setLocale,
+    setDefaultLocale,
+    toggleSiderCollapse,
+  }
 })
 
 export const useAppStoreHook = () => useAppStore(store)

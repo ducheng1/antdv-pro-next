@@ -1,0 +1,13 @@
+{
+  "login": "登錄",
+  "home": "首頁",
+  "dashboard": {
+    "index": "儀表板",
+    "analysis": "分析頁",
+    "monitor": "監控頁"
+  },
+  "form": {
+    "index": "表單頁",
+    "basic": "基礎表單頁"
+  }
+}

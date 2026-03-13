@@ -11,7 +11,11 @@ const app = createApp(App)
 
 setupPlugins(app)
 
-router.isReady().then(() => {
+router.isReady().then(async () => {
+  const userStore = useUserStore()
+  if (userStore.isLogin) {
+    await userStore.getUserInfo()
+  }
   // 生成路由
   const routesStore = useRoutesStoreHook()
   routesStore.generateMenu()

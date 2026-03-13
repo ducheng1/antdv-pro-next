@@ -1,4 +1,4 @@
-import type { DarkMode, Locale } from '@/constants/app'
+import type { DarkMode, LayoutMode, Locale } from '@/constants/app'
 
 export interface AppConfig {
   /** 主题配置 */
@@ -17,9 +17,11 @@ interface Theme {
 interface Layout {
   /**
    * 布局模式
-   * - sider: 侧边栏布局
-   * - header: 顶部布局
+   * - side: 侧边栏布局
+   * - header: 顶栏布局
    * - mix: 混合布局
    */
-  mode: 'sider' | 'header' | 'mix'
+  mode: LayoutMode
+  /** 是否折叠侧边栏 */
+  siderCollapsed: boolean
 }

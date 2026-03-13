@@ -11,8 +11,7 @@ definePage({
   },
 })
 
-const i18n = useI18n()
-const { t } = i18n
+const { t } = useI18n()
 
 const tabs = computed<TabsProps['items']>(() => [
   {
@@ -31,8 +30,10 @@ const componentsMap = new Map([['account', AccountLoginForm]])
 
 <template>
   <div class=":uno: page-container py-8">
-    <!-- 国际化切换 -->
-    <SwitchLocale class=":uno: right-4 top-1 absolute" />
+    <div class=":uno: right-4 top-1 absolute">
+      <SwitchColorMode />
+      <SwitchLocale />
+    </div>
     <!-- 表单 -->
     <div class=":uno: py-6 w-full">
       <div class=":uno: mb-8 text-center">

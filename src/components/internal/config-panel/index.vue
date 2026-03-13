@@ -13,10 +13,9 @@ const open = ref<boolean>(false)
     class=":uno: text-white p-3 right-0 top-1/3 fixed ant-bg-primary rounded-l hover:cursor-pointer"
     @click="open = true"
   >
-    <i
-      :class="
-        clsx(':uno: size-6', open ? 'i-ant-design-close-outlined' : 'i-ant-design-setting-outlined')
-      "
+    <RenderIcon
+      :icon="open ? 'i-ant-design-close-outlined' : 'i-ant-design-setting-outlined'"
+      class="size-6"
     />
   </div>
   <Panel v-model="open" />

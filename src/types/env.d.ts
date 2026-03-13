@@ -5,6 +5,8 @@ interface ViteTypeOptions {
 interface ImportMetaEnv {
   /** 应用标题 */
   readonly VITE_APP_TITLE: string
+  /** Storage前缀 */
+  readonly VITE_APP_STORAGE_PREFIX: string
   /** 后端接口地址 */
   readonly VITE_API_BASE_URL: string
   /** 是否开启代理 */

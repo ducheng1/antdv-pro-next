@@ -1,10 +1,10 @@
 <script setup lang="ts">
 definePage({
-  name: '404',
+  name: 'Error403',
   meta: {
-    title: '404',
-    layout: 'pure',
-    requiresLogin: false,
+    title: '403',
+    menu: true,
+    menuSort: 1,
   },
 })
 
@@ -12,13 +12,8 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <div class="size-full">
-    <AResult
-      class="flex-c flex-col size-full"
-      status="404"
-      title="404"
-      :sub-title="t('app.error.404')"
-    >
+  <div>
+    <AResult status="403" title="403" :sub-title="t('app.error.403')">
       <template #extra>
         <AButton @click="$router.back()"> {{ t('app.back') }} </AButton>
         <AButton type="primary" @click="$router.replace('/')"> {{ t('app.back-home') }} </AButton>
@@ -27,8 +22,4 @@ const { t } = useI18n()
   </div>
 </template>
 
-<style lang="scss" scoped>
-:deep(.ant-result .ant-result-image) {
-  margin: 0 auto 24px;
-}
-</style>
+<style lang="scss" scoped></style>

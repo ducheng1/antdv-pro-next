@@ -2,7 +2,7 @@
 import Menu from './menu/index.vue'
 
 const appStore = useAppStore()
-const { isDark } = storeToRefs(appStore)
+const { config, isDark } = storeToRefs(appStore)
 </script>
 
 <template>
@@ -12,8 +12,11 @@ const { isDark } = storeToRefs(appStore)
     :width="256"
     :collapsed-width="64"
     collapsible
+    :collapsed="config.layout.siderCollapsed"
   >
-    <Logo class=":uno: flex-c h-16 w-full" />
+    <div class=":uno: flex-c h-16 w-full">
+      <Logo :icon-only="config.layout.siderCollapsed" />
+    </div>
     <div class=":uno: px-1 grow h-full overflow-y-auto">
       <Menu />
     </div>

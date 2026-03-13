@@ -3,12 +3,11 @@ import type { MenuProps } from 'antdv-next'
 
 const routesStore = useRoutesStore()
 const { menuList } = storeToRefs(routesStore)
+
 const appStore = useAppStore()
+const { config, isDark } = storeToRefs(appStore)
 
-const i18n = useGlobalI18n()
-const { t } = i18n
-
-const { isDark } = storeToRefs(appStore)
+const { t } = useI18n()
 
 const route = useRoute()
 const router = useRouter()
@@ -20,7 +19,7 @@ const onMenuSelect: MenuProps['onSelect'] = (item) => {
 const openKeys = ref<string[]>([])
 
 watch(
-  () => route,
+  () => [route.path, config.value.layout.siderCollapsed],
   () => {
     const pathList = routesStore.getRoutePath(route.path).map((item) => item.path)
     pathList.pop()
@@ -43,14 +42,14 @@ watch(
       border: 'none',
     }"
     :inline-indent="16"
-    :default-selected-keys="[route.path]"
+    :selected-keys="[route.path]"
     @select="onMenuSelect"
   >
     <template #labelRender="item">
       <span>{{ t(item.label) }}</span>
     </template>
     <template #iconRender="item">
-      <RenderIcon :name="item.icon" class="size-4"></RenderIcon>
+      <RenderIcon :icon="item.icon" class="size-4"></RenderIcon>
     </template>
   </AMenu>
 </template>

@@ -197,7 +197,6 @@ declare global {
   const useFullscreen: typeof import('@vueuse/core').useFullscreen
   const useGamepad: typeof import('@vueuse/core').useGamepad
   const useGeolocation: typeof import('@vueuse/core').useGeolocation
-  const useGlobalI18n: typeof import('../../hooks/use-global-i18n').useGlobalI18n
   const useI18n: typeof import('vue-i18n').useI18n
   const useId: typeof import('vue').useId
   const useIdle: typeof import('@vueuse/core').useIdle
@@ -523,7 +522,6 @@ declare module 'vue' {
     readonly useFullscreen: UnwrapRef<typeof import('@vueuse/core')['useFullscreen']>
     readonly useGamepad: UnwrapRef<typeof import('@vueuse/core')['useGamepad']>
     readonly useGeolocation: UnwrapRef<typeof import('@vueuse/core')['useGeolocation']>
-    readonly useGlobalI18n: UnwrapRef<typeof import('../../hooks/use-global-i18n')['useGlobalI18n']>
     readonly useI18n: UnwrapRef<typeof import('vue-i18n')['useI18n']>
     readonly useId: UnwrapRef<typeof import('vue')['useId']>
     readonly useIdle: UnwrapRef<typeof import('@vueuse/core')['useIdle']>

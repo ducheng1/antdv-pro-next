@@ -1,15 +1,8 @@
-<script setup lang="ts">
-const userStore = useUserStore()
-
-if (userStore.isLogin) {
-  userStore.getUserInfo()
-}
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <UiProvider>
     <RouterView />
-    <ConfigPanel />
   </UiProvider>
 </template>
 

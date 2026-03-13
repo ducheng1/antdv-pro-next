@@ -13,6 +13,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AApp: typeof import('antdv-next')['App']
+    AAvatar: typeof import('antdv-next')['Avatar']
     AButton: typeof import('antdv-next')['Button']
     ACard: typeof import('antdv-next')['Card']
     ACheckbox: typeof import('antdv-next')['Checkbox']
@@ -23,6 +24,7 @@ declare module 'vue' {
     AFlex: typeof import('antdv-next')['Flex']
     AForm: typeof import('antdv-next')['Form']
     AFormItem: typeof import('antdv-next')['FormItem']
+    AImage: typeof import('antdv-next')['Image']
     AInput: typeof import('antdv-next')['Input']
     AInputPassword: typeof import('antdv-next')['InputPassword']
     ALayout: typeof import('antdv-next')['Layout']
@@ -31,6 +33,7 @@ declare module 'vue' {
     ALayoutHeader: typeof import('antdv-next')['LayoutHeader']
     ALayoutSider: typeof import('antdv-next')['LayoutSider']
     AMenu: typeof import('antdv-next')['Menu']
+    AResult: typeof import('antdv-next')['Result']
     ASpace: typeof import('antdv-next')['Space']
     AStyleProvider: typeof import('antdv-next')['StyleProvider']
     ASwitch: typeof import('antdv-next')['Switch']
@@ -38,11 +41,12 @@ declare module 'vue' {
     ConfigPanel: typeof import('./../../components/internal/config-panel/index.vue')['default']
     HolderRender: typeof import('./../../components/internal/holder-render/index.vue')['default']
     Logo: typeof import('./../../components/internal/logo/index.vue')['default']
-    RenderIcon: typeof import('./../../components/common/render-icon/index.vue')['default']
+    RenderIcon: typeof import('./../../components/internal/render-icon/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SwitchColorMode: typeof import('./../../components/internal/switch-color-mode/index.vue')['default']
     SwitchLocale: typeof import('./../../components/internal/switch-locale/index.vue')['default']
+    SwitchSiderCollapse: typeof import('./../../components/internal/switch-sider-collapse/index.vue')['default']
     UiProvider: typeof import('./../../components/internal/ui-provider/index.vue')['default']
   }
 }
@@ -50,6 +54,7 @@ declare module 'vue' {
 // For TSX support
 declare global {
   const AApp: typeof import('antdv-next')['App']
+  const AAvatar: typeof import('antdv-next')['Avatar']
   const AButton: typeof import('antdv-next')['Button']
   const ACard: typeof import('antdv-next')['Card']
   const ACheckbox: typeof import('antdv-next')['Checkbox']
@@ -60,6 +65,7 @@ declare global {
   const AFlex: typeof import('antdv-next')['Flex']
   const AForm: typeof import('antdv-next')['Form']
   const AFormItem: typeof import('antdv-next')['FormItem']
+  const AImage: typeof import('antdv-next')['Image']
   const AInput: typeof import('antdv-next')['Input']
   const AInputPassword: typeof import('antdv-next')['InputPassword']
   const ALayout: typeof import('antdv-next')['Layout']
@@ -68,6 +74,7 @@ declare global {
   const ALayoutHeader: typeof import('antdv-next')['LayoutHeader']
   const ALayoutSider: typeof import('antdv-next')['LayoutSider']
   const AMenu: typeof import('antdv-next')['Menu']
+  const AResult: typeof import('antdv-next')['Result']
   const ASpace: typeof import('antdv-next')['Space']
   const AStyleProvider: typeof import('antdv-next')['StyleProvider']
   const ASwitch: typeof import('antdv-next')['Switch']
@@ -75,10 +82,11 @@ declare global {
   const ConfigPanel: typeof import('./../../components/internal/config-panel/index.vue')['default']
   const HolderRender: typeof import('./../../components/internal/holder-render/index.vue')['default']
   const Logo: typeof import('./../../components/internal/logo/index.vue')['default']
-  const RenderIcon: typeof import('./../../components/common/render-icon/index.vue')['default']
+  const RenderIcon: typeof import('./../../components/internal/render-icon/index.vue')['default']
   const RouterLink: typeof import('vue-router')['RouterLink']
   const RouterView: typeof import('vue-router')['RouterView']
   const SwitchColorMode: typeof import('./../../components/internal/switch-color-mode/index.vue')['default']
   const SwitchLocale: typeof import('./../../components/internal/switch-locale/index.vue')['default']
+  const SwitchSiderCollapse: typeof import('./../../components/internal/switch-sider-collapse/index.vue')['default']
   const UiProvider: typeof import('./../../components/internal/ui-provider/index.vue')['default']
 }

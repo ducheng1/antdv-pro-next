@@ -3,10 +3,10 @@ import type { FormProps } from 'antdv-next'
 import type { AccountLoginForm } from '@/types/pages/auth'
 import { message } from 'antdv-next'
 
-const i18n = useI18n()
-const { t } = i18n
+const { t } = useI18n()
 
 const userStore = useUserStore()
+const route = useRoute()
 const router = useRouter()
 
 const formRules: FormProps['rules'] = {
@@ -27,7 +27,7 @@ async function handleSubmit() {
     loading.value = true
     await userStore.handleLogin(formModel)
     message.success(t('auth.login-success'))
-    router.replace('/')
+    router.replace((route.query.redirect as string) || '/')
   } finally {
     loading.value = false
   }
@@ -39,14 +39,14 @@ async function handleSubmit() {
     <AFormItem name="username">
       <AInput v-model:value="formModel.username" :placeholder="t('auth.username')">
         <template #prefix>
-          <i class="i-ant-design-user-outlined" />
+          <RenderIcon icon="i-ant-design:user-outlined" class="size-5" />
         </template>
       </AInput>
     </AFormItem>
     <AFormItem name="password">
       <AInputPassword v-model:value="formModel.password" :placeholder="t('auth.password')">
         <template #prefix>
-          <i class="i-ant-design-lock-outlined" />
+          <RenderIcon icon="i-ant-design:lock-outlined" class="size-5" />
         </template>
       </AInputPassword>
     </AFormItem>
@@ -65,14 +65,17 @@ async function handleSubmit() {
     </AFormItem>
     <ASpace>
       <span>{{ t('auth.third-party') }}</span>
-      <i
-        class=":uno: i-ant-design:alipay-circle-filled size-6 transition-color ant-c-text-quat hover:cursor-pointer hover:ant-c-primary"
+      <RenderIcon
+        icon="i-ant-design:alipay-circle-filled"
+        class=":uno: size-6 transition-color ant-c-text-quat hover:cursor-pointer hover:ant-c-primary"
       />
-      <i
-        class=":uno: i-ant-design:taobao-circle-filled size-6 transition-color ant-c-text-quat hover:cursor-pointer hover:ant-c-primary"
+      <RenderIcon
+        icon="i-ant-design:taobao-circle-filled"
+        class=":uno: size-6 transition-color ant-c-text-quat hover:cursor-pointer hover:ant-c-primary"
       />
-      <i
-        class=":uno: i-ant-design:weibo-circle-filled size-6 transition-color ant-c-text-quat hover:cursor-pointer hover:ant-c-primary"
+      <RenderIcon
+        icon="i-ant-design:weibo-circle-filled"
+        class=":uno: size-6 transition-color ant-c-text-quat hover:cursor-pointer hover:ant-c-primary"
       />
     </ASpace>
   </AForm>

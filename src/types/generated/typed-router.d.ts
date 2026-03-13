@@ -61,6 +61,27 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    'Error': RouteRecordInfo<
+      'Error',
+      '/error',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    'Error403': RouteRecordInfo<
+      'Error403',
+      '/error/403',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    'Error404': RouteRecordInfo<
+      'Error404',
+      '/error/404',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     'Form': RouteRecordInfo<
       'Form',
       '/form',
@@ -78,6 +99,20 @@ declare module 'vue-router/auto-routes' {
     'Login': RouteRecordInfo<
       'Login',
       '/login',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    'Permission': RouteRecordInfo<
+      'Permission',
+      '/permission',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    'PermissionAdmin': RouteRecordInfo<
+      'PermissionAdmin',
+      '/permission/admin',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -125,6 +160,24 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/error/index.vue': {
+      routes:
+        | 'Error'
+      views:
+        | never
+    }
+    'src/pages/error/403/index.vue': {
+      routes:
+        | 'Error403'
+      views:
+        | never
+    }
+    'src/pages/error/404/index.vue': {
+      routes:
+        | 'Error404'
+      views:
+        | never
+    }
     'src/pages/form/index.vue': {
       routes:
         | 'Form'
@@ -140,6 +193,18 @@ declare module 'vue-router/auto-routes' {
     'src/pages/login/index.vue': {
       routes:
         | 'Login'
+      views:
+        | never
+    }
+    'src/pages/permission/index.vue': {
+      routes:
+        | 'Permission'
+      views:
+        | never
+    }
+    'src/pages/permission/admin/index.vue': {
+      routes:
+        | 'PermissionAdmin'
       views:
         | never
     }

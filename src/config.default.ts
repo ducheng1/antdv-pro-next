@@ -2,10 +2,11 @@ import type { AppConfig } from '#/app'
 
 export const defaultAppConfig: AppConfig = {
   theme: {
-    darkMode: 'light',
+    darkMode: 'auto',
   },
   layout: {
-    mode: 'sider',
+    mode: 'side',
+    siderCollapsed: false,
   },
   locale: 'zh-CN',
 }

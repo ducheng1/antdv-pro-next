@@ -2,8 +2,9 @@ import type { HttpResponse } from '#/api/response'
 import type { AccountLoginForm } from '#/pages/auth'
 import { defineMock } from '@alova/mock'
 import mockjs from 'mockjs'
+import { i18n } from '@/plugins'
 
-const { t } = useGlobalI18n()
+const { t } = i18n.global
 
 export default defineMock({
   '[POST]/auth/login': ({ data }: { data: AccountLoginForm }) => {

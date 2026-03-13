@@ -10,6 +10,7 @@ export default defineMock({
       username: 'admin',
       nickname: '管理员',
       avatar: 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',
+      permissions: ['test:button', 'test:page'],
     },
   } satisfies HttpResponse<UserInfo>,
 })

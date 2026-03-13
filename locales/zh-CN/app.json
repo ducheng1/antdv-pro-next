@@ -1,3 +1,15 @@
 {
-  "title": "Antdv Pro Next"
+  "title": "Antdv Pro Next",
+  "color-mode": {
+    "dark": "暗色模式",
+    "light": "亮色模式",
+    "auto": "跟随系统"
+  },
+  "error": {
+    "403": "对不起，您无权访问此页面",
+    "404": "您所访问的页面不存在"
+  },
+  "back-home": "回到首页",
+  "back": "返回上级",
+  "unnamed-page": "未命名页面"
 }

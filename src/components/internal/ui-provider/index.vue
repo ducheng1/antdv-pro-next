@@ -1,27 +1,17 @@
 <script setup lang="ts">
-import { ConfigProvider, message, Modal, notification, theme } from 'antdv-next'
+import { message, Modal, notification, theme } from 'antdv-next'
 import enUS from 'antdv-next/locale/en_US'
 import zhCN from 'antdv-next/locale/zh_CN'
 import { getThemeToken } from '@/theme'
-import UiProvider from './index.vue'
 
 defineOptions({
   name: 'UiProvider',
 })
 
-onMounted(() => {
-  ;(ConfigProvider as any).config({ holderRender: UiProvider })
-})
-
-onBeforeUnmount(() => {
-  ;(ConfigProvider as any).config({ holderRender: undefined })
-})
-
 const appStore = useAppStore()
 const { isDark } = storeToRefs(appStore)
 
-const i18n = useI18n()
-const { locale } = i18n
+const { locale } = useI18n()
 
 const localeMap = new Map([
   ['zh-CN', zhCN],

@@ -1,14 +1,21 @@
 <script setup lang="ts">
-import Sider from './blocks/sider.vue'
+import type { Component } from 'vue'
+import type { LayoutMode } from '@/constants/app'
+import Mix from './blocks/mix.vue'
+import Side from './blocks/side.vue'
 
 const appStore = useAppStore()
 const { config } = storeToRefs(appStore)
 
-const layoutMap = new Map([['sider', Sider]])
+const layoutMap = new Map<LayoutMode, Component>([
+  ['side', Side],
+  ['mix', Mix],
+])
 </script>
 
 <template>
-  <component :is="layoutMap.get(config.layout.mode)" />
+  <ConfigPanel />
+  <component :is="layoutMap.get(config.layout.mode) ?? Side" />
 </template>
 
 <style lang="scss" scoped></style>
