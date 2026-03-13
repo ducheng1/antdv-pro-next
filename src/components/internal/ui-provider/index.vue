@@ -2,14 +2,13 @@
 import { message, Modal, notification, theme } from 'antdv-next'
 import enUS from 'antdv-next/locale/en_US'
 import zhCN from 'antdv-next/locale/zh_CN'
-import { getThemeToken } from '@/theme'
 
 defineOptions({
   name: 'UiProvider',
 })
 
 const appStore = useAppStore()
-const { isDark } = storeToRefs(appStore)
+const { isDark, themeToken } = storeToRefs(appStore)
 
 const { locale } = useI18n()
 
@@ -32,7 +31,7 @@ window.$modal = modalApi
     :locale="localeMap.get(locale)"
     :theme="{
       algorithm: isDark ? theme.darkAlgorithm : theme.defaultAlgorithm,
-      ...getThemeToken(isDark),
+      ...themeToken,
     }"
   >
     <AStyleProvider hash-priority="high">

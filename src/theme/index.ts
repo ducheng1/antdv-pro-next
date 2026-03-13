@@ -9,6 +9,6 @@ const commonToken: Omit<ThemeConfig, 'algorithm'> = {
   },
 }
 
-export function getThemeToken(isDark: boolean) {
+export function getCommonThemeToken(isDark: boolean) {
   return toMerged(commonToken, isDark ? darkThemeToken : lightThemeToken)
 }

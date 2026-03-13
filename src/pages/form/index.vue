@@ -1,6 +1,7 @@
 <script setup lang="ts">
 definePage({
   name: 'Form',
+  redirect: '/form/basic',
   meta: {
     title: 'routes.form.index',
     menu: true,

@@ -13,10 +13,12 @@ const { t } = useI18n()
 
 <template>
   <div>
-    <AResult status="403" title="403" :sub-title="t('app.error.403')">
+    <AResult status="403" title="403" :sub-title="t('common.error.403')">
       <template #extra>
-        <AButton @click="$router.back()"> {{ t('app.back') }} </AButton>
-        <AButton type="primary" @click="$router.replace('/')"> {{ t('app.back-home') }} </AButton>
+        <AButton @click="$router.back()"> {{ t('common.back') }} </AButton>
+        <AButton type="primary" @click="$router.replace('/')">
+          {{ t('common.back-home') }}
+        </AButton>
       </template>
     </AResult>
   </div>

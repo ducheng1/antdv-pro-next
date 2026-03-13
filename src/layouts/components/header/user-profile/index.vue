@@ -4,10 +4,13 @@ import type { MenuItemType } from 'antdv-next'
 const userStore = useUserStore()
 const { userInfo } = storeToRefs(userStore)
 
+const { t } = useI18n()
+
 const items: MenuItemType[] = [
   {
-    label: '退出登录',
+    label: t('common.logout'),
     key: 'logout',
+    icon: 'i-ant-design:logout-outlined',
     onClick: userStore.handleLogout,
   },
 ]
@@ -15,6 +18,9 @@ const items: MenuItemType[] = [
 
 <template>
   <ADropdown :menu="{ items }">
+    <template #iconRender="item">
+      <RenderIcon :icon="item.icon" />
+    </template>
     <AButton type="text" size="large">
       <template #icon>
         <AAvatar :src="userInfo?.avatar">

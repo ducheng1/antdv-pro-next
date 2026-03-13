@@ -30,6 +30,8 @@ export default defineConfig({
         'ant-design': () =>
           import('@iconify-json/ant-design/icons.json').then((res) => res.default),
         'lucide': () => import('@iconify-json/lucide/icons.json').then((res) => res.default),
+        'circle-flags': () =>
+          import('@iconify-json/circle-flags/icons.json').then((res) => res.default),
         'svg': FileSystemIconLoader(resolvePath('src/assets/svg'), (svg) =>
           svg.replace(/#fff/, 'currentColor'),
         ),

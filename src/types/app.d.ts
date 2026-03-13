@@ -1,4 +1,11 @@
-import type { DarkMode, LayoutMode, Locale } from '@/constants/app'
+import type {
+  ColorMode,
+  ContentWidth,
+  LayoutMode,
+  Locale,
+  MenuColorMode,
+  PrimaryColor,
+} from '@/constants/app'
 
 export interface AppConfig {
   /** 主题配置 */
@@ -10,8 +17,12 @@ export interface AppConfig {
 }
 
 interface Theme {
-  /** 暗色模式 */
-  darkMode: DarkMode
+  /** 颜色模式 */
+  colorMode: ColorMode
+  /** 菜单风格 */
+  menuColorMode: MenuColorMode
+  /** 主题色 */
+  primaryColor: PrimaryColor
 }
 
 interface Layout {
@@ -24,4 +35,6 @@ interface Layout {
   mode: LayoutMode
   /** 是否折叠侧边栏 */
   siderCollapsed: boolean
+  /** 内容区域宽度 */
+  contentWidth: ContentWidth
 }

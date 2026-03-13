@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { FormProps } from 'antdv-next'
 import type { AccountLoginForm } from '@/types/pages/auth'
-import { message } from 'antdv-next'
 
 const { t } = useI18n()
 
@@ -26,7 +25,7 @@ async function handleSubmit() {
   try {
     loading.value = true
     await userStore.handleLogin(formModel)
-    message.success(t('auth.login-success'))
+    window.$message.success(t('auth.login-success'))
     router.replace((route.query.redirect as string) || '/')
   } finally {
     loading.value = false

@@ -3,9 +3,14 @@ import { setupI18n } from './i18n'
 import { setupRouter } from './router'
 import { setupStore } from './store'
 
-export function setupPlugins(app: App) {
-  setupI18n(app)
+export async function setupPlugins(app: App) {
   setupStore(app)
+  const userStore = useUserStore()
+  if (userStore.isLogin) {
+    // 获取用户权限
+    await userStore.getPermissionList()
+  }
+  setupI18n(app)
   setupRouter(app)
 }
 

@@ -2,19 +2,13 @@
 import Content from '../components/content/index.vue'
 import Footer from '../components/footer/index.vue'
 import Header from '../components/header/index.vue'
-import Sider from '../components/sider/index.vue'
 </script>
 
 <template>
-  <ALayout class=":uno: size-full">
+  <ALayout class=":uno: min-h-screen">
     <Header class="pl-0 pr-4" />
-    <ALayout has-sider>
-      <Sider />
-      <ALayout>
-        <Content />
-        <Footer />
-      </ALayout>
-    </ALayout>
+    <Content />
+    <Footer />
   </ALayout>
 </template>
 

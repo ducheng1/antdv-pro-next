@@ -11,18 +11,18 @@ const app = createApp(App)
 
 setupPlugins(app)
 
-router.isReady().then(async () => {
-  const userStore = useUserStore()
-  if (userStore.isLogin) {
-    await userStore.getUserInfo()
-  }
-  // 生成路由
-  const routesStore = useRoutesStoreHook()
-  routesStore.generateMenu()
-  // 设置默认语言
+async function bootstrap() {
+  await router.isReady()
+
   const appStore = useAppStoreHook()
   appStore.setDefaultLocale()
-  // 挂载
+  appStore.mergeThemeToken()
+
+  const routesStore = useRoutesStoreHook()
+  routesStore.generateMenu()
+
   app.mount('#app')
   loadingFadeOut()
-})
+}
+
+bootstrap()

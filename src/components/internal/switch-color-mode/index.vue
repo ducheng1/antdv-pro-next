@@ -1,28 +1,23 @@
 <script setup lang="ts">
 import type { DropdownProps, MenuItemType } from 'antdv-next'
-import type { DarkMode } from '@/constants/app'
-import { darkModeList } from '@/constants/app'
+import type { ColorMode } from '@/constants/app'
+import { colorModeList } from '@/constants/app'
 
 const appStore = useAppStore()
 const { colorMode, isDark } = storeToRefs(appStore)
 const { t } = useI18n()
 
-function getColorModeIcon(mode: DarkMode) {
-  switch (mode) {
-    case 'dark':
-      return 'i-ant-design:moon-outlined'
-    case 'light':
-      return 'i-ant-design:sun-outlined'
-    case 'auto':
-      return 'i-ant-design:sync-outlined'
-  }
-}
+const iconMap = new Map([
+  ['dark', 'i-ant-design:moon-outlined'],
+  ['light', 'i-ant-design:sun-outlined'],
+  ['auto', 'i-ant-design:sync-outlined'],
+])
 
 const items = computed<MenuItemType[]>(() =>
-  darkModeList.map(
+  colorModeList.map(
     (item) =>
       ({
-        icon: getColorModeIcon(item.value),
+        icon: iconMap.get(item.value),
         key: item.value,
         label: t(item.label),
         disabled: item.value === colorMode.value,
@@ -39,14 +34,14 @@ function handleViewTransition(cb: () => void) {
 }
 
 const handleMenuClick: DropdownProps['onMenuClick'] = (item) => {
-  handleViewTransition(() => appStore.setDarkMode(item.key as DarkMode))
+  handleViewTransition(() => appStore.setColorMode(item.key as ColorMode))
 }
 </script>
 
 <template>
   <ADropdown :menu="{ items }" @menu-click="handleMenuClick">
     <template #iconRender="item">
-      <RenderIcon :icon="item.icon" class="scale-120" />
+      <RenderIcon :icon="item.icon" />
     </template>
     <AButton type="text" @click="handleViewTransition(appStore.toggleDarkMode)">
       <template #icon>

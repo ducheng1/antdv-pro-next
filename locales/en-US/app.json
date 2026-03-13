@@ -11,5 +11,10 @@
   },
   "back-home": "Back Home",
   "back": "Back",
-  "unnamed-page": "Unnamed Page"
+  "unnamed-page": "Unnamed Page",
+  "config": {
+    "color-mode": "Style Setting",
+    "primary-color": "Primary Color",
+    "layout": "Layout Setting"
+  }
 }

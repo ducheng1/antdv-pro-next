@@ -77,20 +77,22 @@ export const useRoutesStore = defineStore('routes', () => {
           // 子菜单没有被过滤
           if (children?.length) {
             return {
+              type: 'submenu',
               key: route.path,
-              label: (route.meta?.title as string) ?? 'app.unnamed-page',
+              label: (route.meta?.title as string) ?? 'common.unnamed-page',
               icon: route.meta?.icon as string,
               children,
-            }
+            } as MenuItemType
           }
           // 过滤整个菜单
           return undefined as unknown as MenuItemType
         }
         return {
+          type: 'item',
           key: route.path,
-          label: (route.meta?.title as string) ?? 'app.unnamed-page',
+          label: (route.meta?.title as string) ?? 'common.unnamed-page',
           icon: route.meta?.icon as string,
-        }
+        } as MenuItemType
       })
       .filter(Boolean)
   }
@@ -117,7 +119,14 @@ export const useRoutesStore = defineStore('routes', () => {
     return result
   }
 
-  return { generateMenu, getRoutePath, menuList }
+  // 获取子菜单
+  function getChildMenu(path: string) {
+    const routePath = getRoutePath(path)
+    // @ts-expect-error unknown type
+    return menuList.value.find((item) => item!.key === routePath[0].path)?.children ?? []
+  }
+
+  return { generateMenu, getRoutePath, menuList, getChildMenu }
 })
 
 export const useRoutesStoreHook = () => useRoutesStore(store)

@@ -14,7 +14,6 @@
     "index": "错误页"
   },
   "permission": {
-    "index": "权限测试页",
-    "admin": "管理员"
+    "index": "权限测试页"
   }
 }

@@ -10,10 +10,17 @@ defineOptions({
 const appStore = useAppStore()
 const { config } = storeToRefs(appStore)
 
+const iconMap = new Map([
+  ['zh-CN', 'i-circle-flags:lang-zh'],
+  ['zh-TW', 'i-circle-flags:lang-zh'],
+  ['en-US', 'i-circle-flags:lang-en-us'],
+])
+
 const items = computed<MenuItemType[]>(() =>
   localeList.map(
     (item) =>
       ({
+        icon: iconMap.get(item.value),
         key: item.value,
         label: item.label,
         disabled: item.value === config.value.locale,
@@ -29,6 +36,9 @@ const handleMenuClick: DropdownProps['onMenuClick'] = (info) => {
 
 <template>
   <ADropdown :menu="{ items }" @menu-click="handleMenuClick">
+    <template #iconRender="item">
+      <RenderIcon :icon="item.icon" />
+    </template>
     <AButton type="text">
       <template #icon>
         <RenderIcon icon="i-lucide:languages" class="scale-120" />

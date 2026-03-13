@@ -17,11 +17,13 @@ const { t } = useI18n()
       class="flex-c flex-col size-full"
       status="404"
       title="404"
-      :sub-title="t('app.error.404')"
+      :sub-title="t('common.error.404')"
     >
       <template #extra>
-        <AButton @click="$router.back()"> {{ t('app.back') }} </AButton>
-        <AButton type="primary" @click="$router.replace('/')"> {{ t('app.back-home') }} </AButton>
+        <AButton @click="$router.back()"> {{ t('common.back') }} </AButton>
+        <AButton type="primary" @click="$router.replace('/')">
+          {{ t('common.back-home') }}
+        </AButton>
       </template>
     </AResult>
   </div>

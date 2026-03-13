@@ -3,6 +3,7 @@ import type { Component } from 'vue'
 import type { LayoutMode } from '@/constants/app'
 import Mix from './blocks/mix.vue'
 import Side from './blocks/side.vue'
+import Top from './blocks/top.vue'
 
 const appStore = useAppStore()
 const { config } = storeToRefs(appStore)
@@ -10,6 +11,7 @@ const { config } = storeToRefs(appStore)
 const layoutMap = new Map<LayoutMode, Component>([
   ['side', Side],
   ['mix', Mix],
+  ['top', Top],
 ])
 </script>
 

@@ -89,8 +89,8 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    'Form': RouteRecordInfo<
-      'Form',
+    'FormBasic': RouteRecordInfo<
+      'FormBasic',
       '/form/basic',
       Record<never, never>,
       Record<never, never>,
@@ -106,13 +106,6 @@ declare module 'vue-router/auto-routes' {
     'Permission': RouteRecordInfo<
       'Permission',
       '/permission',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    'PermissionAdmin': RouteRecordInfo<
-      'PermissionAdmin',
-      '/permission/admin',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -186,7 +179,7 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/form/basic/index.vue': {
       routes:
-        | 'Form'
+        | 'FormBasic'
       views:
         | never
     }
@@ -199,12 +192,6 @@ declare module 'vue-router/auto-routes' {
     'src/pages/permission/index.vue': {
       routes:
         | 'Permission'
-      views:
-        | never
-    }
-    'src/pages/permission/admin/index.vue': {
-      routes:
-        | 'PermissionAdmin'
       views:
         | never
     }

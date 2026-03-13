@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePage({
-  name: 'Form',
+  name: 'FormBasic',
   meta: {
     title: 'routes.form.basic',
     menu: true,

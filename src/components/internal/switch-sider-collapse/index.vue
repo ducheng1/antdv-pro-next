@@ -7,12 +7,8 @@ const { config } = storeToRefs(appStore)
   <AButton type="text" @click="appStore.toggleSiderCollapse">
     <template #icon>
       <RenderIcon
-        :icon="
-          config.layout.siderCollapsed
-            ? 'i-ant-design:menu-unfold-outlined'
-            : 'i-ant-design:menu-fold-outlined'
-        "
-        class="size-5"
+        icon="i-ant-design:menu-fold-outlined"
+        :class="clsx('size-5 transition', config.layout.siderCollapsed ? 'scale-x--100' : '')"
       />
     </template>
   </AButton>

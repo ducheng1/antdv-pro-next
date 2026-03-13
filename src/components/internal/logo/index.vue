@@ -19,7 +19,7 @@ const { t } = useI18n()
     />
     <span
       v-if="!iconOnly"
-      :class="clsx(':uno: text-18px font-bold ml-2 ant-c-text', props.size === 'large' && 'text-8')"
+      :class="clsx(':uno: text-18px font-bold ml-2', props.size === 'large' && 'text-8')"
     >
       {{ t('app.title') }}
     </span>

@@ -1,25 +1,36 @@
 <script setup lang="ts">
-import Menu from './menu/index.vue'
+import Menu from '../menu/index.vue'
 
 const appStore = useAppStore()
-const { config, isDark } = storeToRefs(appStore)
+const { config, menuColorMode } = storeToRefs(appStore)
+const routesStore = useRoutesStore()
+
+const route = useRoute()
+
+const hasChild = computed(() => !!routesStore.getChildMenu(route.path)?.length)
 </script>
 
 <template>
   <ALayoutSider
-    class=":uno: border-r h-screen top-0 sticky z-900 ant-b-split"
-    :theme="isDark ? 'dark' : 'light'"
+    :class="
+      clsx(
+        ':uno: border-r z-900 ant-b-split sticky',
+        config.layout.mode === 'side' ? 'h-screen top-0' : 'h-[calc(100vh-64px)] top-16',
+      )
+    "
+    :theme="menuColorMode"
     :width="256"
-    :collapsed-width="64"
+    :collapsed-width="config.layout.mode === 'mix' && !hasChild ? 0 : 64"
     collapsible
-    :collapsed="config.layout.siderCollapsed"
+    :collapsed="config.layout.siderCollapsed || (config.layout.mode === 'mix' && !hasChild)"
   >
-    <div class=":uno: flex-c h-16 w-full">
+    <div v-if="config.layout.mode === 'side'" class=":uno: flex-c h-16 w-full">
       <Logo :icon-only="config.layout.siderCollapsed" />
     </div>
     <div class=":uno: px-1 grow h-full overflow-y-auto">
-      <Menu />
+      <Menu :split="config.layout.mode === 'mix'" />
     </div>
+    <SwitchSiderCollapse v-if="config.layout.mode === 'mix'" class="bottom-3 right-4 absolute" />
   </ALayoutSider>
 </template>
 
@@ -27,6 +38,6 @@ const { config, isDark } = storeToRefs(appStore)
 :deep(.ant-layout-sider-children) {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
 }
 </style>

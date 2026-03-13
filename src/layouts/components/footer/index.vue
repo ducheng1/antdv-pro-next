@@ -9,7 +9,7 @@
       </a>
       <a href="https://antdv-next.com/" target="_blank">Antdv Next</a>
     </ASpace>
-    <div>&copy; Powered by ducheng1</div>
+    <div>2026-present &copy; Powered by ducheng1</div>
   </ALayoutFooter>
 </template>
 

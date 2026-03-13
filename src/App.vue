@@ -1,4 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const userStore = useUserStore()
+
+if (userStore.isLogin) {
+  // 获取用户权限
+  userStore.getUserInfo()
+}
+</script>
 
 <template>
   <UiProvider>

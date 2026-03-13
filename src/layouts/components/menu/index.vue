@@ -1,11 +1,16 @@
 <script setup lang="ts">
-import type { MenuProps } from 'antdv-next'
+import type { MenuItemType, MenuProps } from 'antdv-next'
+
+const props = defineProps<{
+  split?: boolean
+  isTop?: boolean
+}>()
 
 const routesStore = useRoutesStore()
 const { menuList } = storeToRefs(routesStore)
 
 const appStore = useAppStore()
-const { config, isDark } = storeToRefs(appStore)
+const { config, menuColorMode } = storeToRefs(appStore)
 
 const { t } = useI18n()
 
@@ -23,26 +28,51 @@ watch(
   () => {
     const pathList = routesStore.getRoutePath(route.path).map((item) => item.path)
     pathList.pop()
-    openKeys.value = pathList
+    openKeys.value = props.isTop ? [] : pathList
   },
   {
     immediate: true,
     deep: true,
   },
 )
+
+const selectedKeys = computed<string[]>(
+  () =>
+    (props.isTop ? routesStore.getRoutePath(route.path).map((item) => item.path) : [route.path]) ??
+    [],
+)
+
+const menuItems = computed<MenuItemType[]>(() => {
+  // 是否拆分（在 mix 模式下）
+  if (props.split) {
+    // 顶部菜单，只显示一级
+    if (props.isTop) {
+      return menuList.value.map(
+        (item) =>
+          ({
+            ...item,
+            children: undefined,
+          }) as MenuItemType,
+      )
+    }
+    // 获取子菜单
+    return routesStore.getChildMenu(route.path)
+  }
+  return menuList.value
+})
 </script>
 
 <template>
   <AMenu
     v-model:open-keys="openKeys"
-    :items="menuList"
-    mode="inline"
-    :theme="isDark ? 'dark' : 'light'"
+    :items="menuItems"
+    :mode="props.isTop ? 'horizontal' : 'inline'"
+    :theme="menuColorMode"
     :style="{
       border: 'none',
     }"
     :inline-indent="16"
-    :selected-keys="[route.path]"
+    :selected-keys
     @select="onMenuSelect"
   >
     <template #labelRender="item">
