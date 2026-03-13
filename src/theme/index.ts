@@ -6,7 +6,6 @@ import { lightThemeToken } from './light'
 const commonToken: Omit<ThemeConfig, 'algorithm'> = {
   token: {
     fontFamily: 'Noto Sans SC, PingFang SC, system-ui, sans-serif',
-    // colorBgLayout: '#f5f5f5',
   },
 }
 

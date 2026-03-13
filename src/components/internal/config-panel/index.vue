@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import Panel from './panel.vue'
 
+defineOptions({
+  name: 'ConfigPanel',
+})
+
 const open = ref<boolean>(false)
 </script>
 

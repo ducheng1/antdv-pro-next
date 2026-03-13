@@ -22,5 +22,8 @@
     "erasableSyntaxOnly": true,
     "noUncheckedSideEffectImports": true
   },
+  "vueCompilerOptions": {
+    "plugins": ["unplugin-vue-router/volar/sfc-typed-router"]
+  },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

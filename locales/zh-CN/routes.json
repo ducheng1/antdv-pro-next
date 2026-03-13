@@ -1,7 +1,13 @@
 {
   "login": "登录",
+  "home": "首页",
   "dashboard": {
     "index": "仪表盘",
-    "analysis": "分析页"
+    "analysis": "分析页",
+    "monitor": "监控页"
+  },
+  "form": {
+    "index": "表单页",
+    "basic": "基础表单页"
   }
 }

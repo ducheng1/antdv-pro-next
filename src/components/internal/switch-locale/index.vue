@@ -3,6 +3,10 @@ import type { DropdownProps, MenuItemType } from 'antdv-next'
 import type { Locale } from '@/constants/app'
 import { localeList } from '@/constants/app'
 
+defineOptions({
+  name: 'SwitchLocale',
+})
+
 const appStore = useAppStore()
 const { config } = storeToRefs(appStore)
 
@@ -24,15 +28,13 @@ const handleMenuClick: DropdownProps['onMenuClick'] = (info) => {
 </script>
 
 <template>
-  <div>
-    <ADropdown :menu="{ items }" @menu-click="handleMenuClick">
-      <AButton type="text">
-        <template #icon>
-          <i class=":uno: i-lucide-languages" />
-        </template>
-      </AButton>
-    </ADropdown>
-  </div>
+  <ADropdown :menu="{ items }" @menu-click="handleMenuClick">
+    <AButton type="text">
+      <template #icon>
+        <i class=":uno: i-lucide-languages" />
+      </template>
+    </AButton>
+  </ADropdown>
 </template>
 
 <style lang="scss" scoped></style>

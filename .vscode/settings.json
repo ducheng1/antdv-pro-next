@@ -68,6 +68,7 @@
     "json"
   ],
   "i18n-ally.keystyle": "nested",
+  "i18n-ally.enabledFrameworks": ["vue", "vue-sfc"],
   // 搜索排除
   "search.exclude": {
     "**/node_modules": true,

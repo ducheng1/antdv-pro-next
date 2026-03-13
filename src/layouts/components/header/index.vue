@@ -1,19 +1,14 @@
 <script setup lang="ts">
 import UserProfile from './user-profile/index.vue'
-
-const appStore = useAppStore()
-const { isDark } = storeToRefs(appStore)
 </script>
 
 <template>
   <ALayoutHeader
-    class=":uno: flex-bc left-0 top-0 sticky z-900"
-    :class="{
-      ':uno: bg-white': !isDark,
-    }"
+    class=":uno: border-b bg-op-60 flex-bc left-0 top-0 sticky z-900 backdrop-blur-md border-b-split"
   >
     <div class=":uno: flex-c h-full">
       <SwitchLocale />
+      <SwitchColorMode />
       <UserProfile />
     </div>
   </ALayoutHeader>

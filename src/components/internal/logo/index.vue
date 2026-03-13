@@ -1,4 +1,8 @@
 <script setup lang="ts">
+defineOptions({
+  name: 'Logo',
+})
+
 const props = defineProps<{ size?: 'large' }>()
 
 const i18n = useI18n()

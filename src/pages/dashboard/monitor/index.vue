@@ -1,15 +1,16 @@
 <script setup lang="ts">
 definePage({
-  name: 'Home',
-  redirect: '/dashboard/analysis',
+  name: 'DashboardMonitor',
   meta: {
-    title: 'routes.home',
+    title: 'routes.dashboard.monitor',
+    menu: true,
+    menuSort: 2,
   },
 })
 </script>
 
 <template>
-  <div></div>
+  <div>监控页</div>
 </template>
 
 <style lang="scss" scoped></style>

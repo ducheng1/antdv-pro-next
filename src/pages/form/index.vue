@@ -1,9 +1,11 @@
 <script setup lang="ts">
 definePage({
-  name: 'Home',
-  redirect: '/dashboard/analysis',
+  name: 'Form',
   meta: {
-    title: 'routes.home',
+    title: 'routes.form.index',
+    menu: true,
+    icon: 'i-ant-design:form-outlined',
+    menuSort: 2,
   },
 })
 </script>

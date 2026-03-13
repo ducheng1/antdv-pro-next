@@ -5,17 +5,18 @@ import { routes } from 'vue-router/auto-routes'
 import { store } from '@/plugins'
 
 export const useRoutesStore = defineStore('routes', () => {
+  const routeTree = ref<RouteRecordRaw[]>([])
   const menuList = ref<MenuItemType[]>([])
 
   // 生成菜单
   function generateMenu() {
-    convertToRouteTree(cloneDeep(routes) as RouteRecordRaw[])
-    // menu.value = transformToMenu(routes)
+    routeTree.value = convertToRouteTree(routes as RouteRecordRaw[])
+    menuList.value = convertToMenu(routeTree.value)
   }
 
   // 处理路由
-  function convertToRouteTree(routes: RouteRecordRaw[], parentPath = '') {
-    return routes.map((route) => {
+  function convertToRouteTree(routes: RouteRecordRaw[], parentPath = ''): RouteRecordRaw[] {
+    return cloneDeep(routes).map((route) => {
       // 处理当前路由的完整路径
       const fullPath = route.path.startsWith('/')
         ? route.path
@@ -58,7 +59,42 @@ export const useRoutesStore = defineStore('routes', () => {
     })
   }
 
-  return { generateMenu, menuList }
+  // 递归生成菜单
+  function convertToMenu(routes: RouteRecordRaw[]): MenuItemType[] {
+    return routes
+      .filter((route) => route.meta?.menu)
+      .sort((a, b) => (a.meta?.menuSort || 0) - (b.meta?.menuSort || 0))
+      .map((route) => ({
+        key: route.path,
+        label: route.meta?.title as string,
+        icon: route.meta?.icon as string,
+        children: route.children ? convertToMenu(route.children) : undefined,
+      }))
+  }
+
+  // 通过 routeTree 递归获取路由路径数组
+  function getRoutePath(targetPath: string): RouteRecordRaw[] {
+    const result: RouteRecordRaw[] = []
+
+    // 深度优先遍历，收集匹配路径上的所有路由
+    function dfs(routes: RouteRecordRaw[], targetPath: string): boolean {
+      for (const route of routes) {
+        result.push({ ...route })
+        if (route.path === targetPath) return true
+        if (route.children) {
+          if (dfs(route.children, targetPath)) return true
+        }
+        result.pop()
+      }
+      return false
+    }
+
+    dfs(routeTree.value, targetPath)
+
+    return result
+  }
+
+  return { generateMenu, getRoutePath, menuList }
 })
 
 export const useRoutesStoreHook = () => useRoutesStore(store)

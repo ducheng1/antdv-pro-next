@@ -6,6 +6,7 @@ definePage({
     title: 'routes.dashboard.index',
     menu: true,
     menuSort: 2,
+    icon: 'i-ant-design:dashboard-outlined',
   },
 })
 </script>

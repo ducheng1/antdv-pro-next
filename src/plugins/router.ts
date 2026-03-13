@@ -26,20 +26,23 @@ router.beforeEach((to, _from, next) => {
   const userStore = useUserStoreHook()
   // 登录且访问登录页，跳转到首页
   if (userStore.isLogin && to.path === '/login') {
-    return next('/')
+    next('/')
   }
+
   // 未登录且访问非公共页面，跳转到登录页
   if (to.meta.requiresLogin && !userStore.isLogin) {
-    return next({ path: '/login', query: { redirect: to.fullPath }, replace: true })
+    next({ path: '/login', query: { redirect: to.fullPath }, replace: true })
   }
 
   // 设置页面标题
   const appStore = useAppStoreHook()
   const { t } = i18n.global
-  const title = to.meta.title ? `${t(to.meta.title)} - ` : ''
+  const title = to.meta.title
+    ? `${t(to.meta.title, {}, { locale: appStore.config.locale })} - `
+    : ''
   useTitle(title + t('app.title', {}, { locale: appStore.config.locale }))
 
-  return next()
+  next()
 })
 
 export function setupRouter(app: App) {

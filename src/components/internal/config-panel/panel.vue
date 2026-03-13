@@ -1,4 +1,8 @@
 <script setup lang="ts">
+defineOptions({
+  name: 'ConfigPanelPanel',
+})
+
 const open = defineModel<boolean>()
 </script>
 

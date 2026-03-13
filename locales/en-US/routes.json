@@ -1,4 +1,9 @@
 {
   "login": "Login",
-  "dashboard": "Dashboard"
+  "home": "Home",
+  "dashboard": {
+    "index": "Dashboard",
+    "analysis": "Analysis",
+    "monitor": "Monitor"
+  }
 }

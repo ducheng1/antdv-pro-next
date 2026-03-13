@@ -1,15 +1,16 @@
 <script setup lang="ts">
 definePage({
-  name: 'Home',
-  redirect: '/dashboard/analysis',
+  name: 'Form',
   meta: {
-    title: 'routes.home',
+    title: 'routes.form.basic',
+    menu: true,
+    menuSort: 1,
   },
 })
 </script>
 
 <template>
-  <div></div>
+  <div>基础表单页</div>
 </template>
 
 <style lang="scss" scoped></style>

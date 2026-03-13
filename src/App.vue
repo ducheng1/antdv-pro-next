@@ -9,6 +9,7 @@ if (userStore.isLogin) {
 <template>
   <UiProvider>
     <RouterView />
+    <ConfigPanel />
   </UiProvider>
 </template>
 
