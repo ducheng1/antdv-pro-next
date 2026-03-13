@@ -11,8 +11,10 @@ definePage({
 
 <template>
   <div>
-    分析页
-    <div v-for="item of 100" :key="item">{{ item }}</div>
+    <ACard>
+      分析页
+      <div v-for="item of 100" :key="item">{{ item }}</div>
+    </ACard>
   </div>
 </template>
 

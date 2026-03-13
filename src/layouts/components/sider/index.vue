@@ -24,7 +24,7 @@ const hasChild = computed(() => !!routesStore.mixSideMenuList?.length)
   >
     <div
       v-if="config.layout.mode === 'side' && config.layout.logo"
-      class=":uno: flex-c h-16 w-full"
+      class=":uno: flex-c h-[var(--ant-layout-header-height)] w-full"
     >
       <Logo
         :icon-only="config.layout.siderCollapsed"

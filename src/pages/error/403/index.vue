@@ -12,7 +12,7 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <div>
+  <ACard>
     <AResult status="403" title="403" :sub-title="t('common.error.403')">
       <template #extra>
         <AButton @click="$router.back()"> {{ t('common.back') }} </AButton>
@@ -21,7 +21,7 @@ const { t } = useI18n()
         </AButton>
       </template>
     </AResult>
-  </div>
+  </ACard>
 </template>
 
 <style lang="scss" scoped></style>

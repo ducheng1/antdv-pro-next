@@ -18,6 +18,7 @@ const layoutMap = new Map<LayoutMode, Component>([
 <template>
   <ConfigPanel />
   <component :is="layoutMap.get(config.layout.mode) ?? Side" />
+  <AFloatBackTop />
 </template>
 
 <style lang="scss" scoped></style>
