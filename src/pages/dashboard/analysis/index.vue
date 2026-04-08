@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import RateTabs from './components/rate-tabs.vue'
+import StatsCards from './components/stats-cards/index.vue'
+
 definePage({
   name: 'DashboardAnalysis',
   meta: {
@@ -11,10 +14,8 @@ definePage({
 
 <template>
   <div>
-    <ACard>
-      分析页
-      <div v-for="item of 100" :key="item">{{ item }}</div>
-    </ACard>
+    <StatsCards />
+    <RateTabs />
   </div>
 </template>
 

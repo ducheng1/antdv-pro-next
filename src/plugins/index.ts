@@ -14,6 +14,7 @@ export async function setupPlugins(app: App) {
   setupRouter(app)
 }
 
+export { default as echarts, type EChartsOption, type EChartsType } from './echarts'
 export { i18n } from './i18n'
 export * from './progress-bar'
 export { router } from './router'
