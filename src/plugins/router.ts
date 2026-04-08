@@ -5,6 +5,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { handleHotUpdate, routes } from 'vue-router/auto-routes'
 import { useAppStoreHook } from '@/stores/app'
 import { i18n } from './i18n'
+import { progressBar } from './progress-bar'
 
 function addDefaultMeta(routes: readonly RouteRecordRaw[]) {
   return routes.map((item) => {
@@ -28,21 +29,22 @@ if (import.meta.hot) {
   handleHotUpdate(router)
 }
 
-router.beforeEach((to, _from, next) => {
+router.beforeEach((to, _from) => {
+  progressBar.start()
   const userStore = useUserStoreHook()
   // 登录且访问登录页，跳转到首页
   if (userStore.isLogin && to.path === '/login') {
-    next('/')
+    return '/'
   }
 
   // 无权限访问，跳转到无权限页
   if (to.meta.auth && !userStore.hasPermission(to.meta.auth)) {
-    next({ path: '/error/403', replace: true })
+    return { path: '/error/403', replace: true }
   }
 
   // 未登录且访问非公共页面，跳转到登录页
   if (to.meta.requiresLogin && !userStore.isLogin) {
-    next({ path: '/login', query: { redirect: to.fullPath }, replace: true })
+    return { path: '/login', query: { redirect: to.fullPath }, replace: true }
   }
 
   // 设置页面标题
@@ -53,7 +55,11 @@ router.beforeEach((to, _from, next) => {
     : ''
   useTitle(title + t('app.title', {}, { locale: appStore.config.locale }))
 
-  next()
+  return true
+})
+
+router.afterEach(() => {
+  progressBar.done()
 })
 
 export function setupRouter(app: App) {
