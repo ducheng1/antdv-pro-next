@@ -3,7 +3,7 @@ definePage({
   name: 'Error404',
   redirect: '/404',
   meta: {
-    title: '404',
+    title: 'routes.error.404',
     menu: true,
     menuSort: 2,
   },

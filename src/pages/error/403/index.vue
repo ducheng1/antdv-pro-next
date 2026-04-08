@@ -2,7 +2,7 @@
 definePage({
   name: 'Error403',
   meta: {
-    title: '403',
+    title: 'routes.error.403',
     menu: true,
     menuSort: 1,
   },
