@@ -9,3 +9,8 @@ body {
 .ant-btn-icon {
   @apply h-full flex-c inline-flex;
 }
+
+.ant-pagination-item-ellipsis {
+  font-family: sans-serif;
+  font-size: 12px;
+}

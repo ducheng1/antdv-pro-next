@@ -18,8 +18,10 @@ const chartOption = ref<EChartsOption>({
     right: 5,
   },
   tooltip: {
-    show: true,
     trigger: 'axis',
+    axisPointer: {
+      type: 'shadow',
+    },
   },
   xAxis: {
     type: 'category',

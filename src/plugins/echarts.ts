@@ -1,5 +1,5 @@
 import type { BarSeriesOption } from 'echarts'
-import type { LineSeriesOption } from 'echarts/charts'
+import type { LineSeriesOption, PieSeriesOption } from 'echarts/charts'
 import type {
   DatasetComponentOption,
   GridComponentOption,
@@ -7,7 +7,7 @@ import type {
   TooltipComponentOption,
 } from 'echarts/components'
 import type { ComposeOption } from 'echarts/core'
-import { BarChart, LineChart } from 'echarts/charts'
+import { BarChart, LineChart, PieChart } from 'echarts/charts'
 import {
   DatasetComponent,
   GridComponent,
@@ -27,6 +27,7 @@ echarts.use([
   // 图表
   LineChart,
   BarChart,
+  PieChart,
   // 功能
   LabelLayout,
   UniversalTransition,
@@ -37,6 +38,7 @@ echarts.use([
 export type EChartsOption = ComposeOption<
   | LineSeriesOption
   | BarSeriesOption
+  | PieSeriesOption
   | TooltipComponentOption
   | GridComponentOption
   | DatasetComponentOption
