@@ -70,7 +70,7 @@ export const useAppStore = defineStore('app', () => {
   // 切换暗色模式
   function toggleDarkMode() {
     colorMode.value = isDark.value ? 'light' : 'dark'
-    config.value.theme.colorMode = isDark.value ? 'light' : 'dark'
+    config.value.theme.colorMode = colorMode.value
     mergeThemeToken()
   }
 
