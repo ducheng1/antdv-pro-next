@@ -15,5 +15,6 @@ export async function setupPlugins(app: App) {
 }
 
 export { i18n } from './i18n'
+export * from './progress-bar'
 export { router } from './router'
 export { store } from './store'
